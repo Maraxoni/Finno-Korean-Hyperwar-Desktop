@@ -1,22 +1,24 @@
+#include <bits/stdc++.h>
+#include <string.h>
+#include <string>
 #include <wx/wx.h>
+#include "Files/View.h"
 
-class MyApp : public wxApp {
+
+class FKApp : public wxApp {
+    wxWindowID id = 1;
+    wxString title = "Hyperwar";
+    long style;
 public:
-    virtual bool OnInit();
+
+    bool OnInit() override {
+        MainMenu* mainMenu = new MainMenu( nullptr, id, title, wxPoint(100, 100), wxSize(800, 600), style);
+
+        mainMenu->Show(true);
+
+        return true;
+    }
+
 };
 
-class MyFrame : public wxFrame {
-public:
-    MyFrame(const wxString& title, const wxPoint& pos, const wxSize& size);
-};
-
-bool MyApp::OnInit() {
-    MyFrame* frame = new MyFrame("Hello World", wxPoint(100, 100), wxSize(800, 600));
-    frame->Show(true);
-    return true;
-}
-
-MyFrame::MyFrame(const wxString& title, const wxPoint& pos, const wxSize& size)
-    : wxFrame(NULL, wxID_ANY, title, pos, size) {}
-
-IMPLEMENT_APP(MyApp)
+IMPLEMENT_APP(FKApp)

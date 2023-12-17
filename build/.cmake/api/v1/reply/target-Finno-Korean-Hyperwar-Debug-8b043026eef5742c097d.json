@@ -24,7 +24,7 @@
 		[
 			"C:/Users/Marax/source/repos/vcpkg/scripts/buildsystems/vcpkg.cmake",
 			"CMakeLists.txt",
-			"C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.26/Modules/UsewxWidgets.cmake"
+			"C:/Program Files/CMake/share/cmake-3.28/Modules/UsewxWidgets.cmake"
 		],
 		"nodes" : 
 		[

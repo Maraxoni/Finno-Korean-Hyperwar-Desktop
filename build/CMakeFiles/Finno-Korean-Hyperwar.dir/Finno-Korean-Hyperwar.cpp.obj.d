@@ -1,38 +1,20 @@
 CMakeFiles/Finno-Korean-Hyperwar.dir/Finno-Korean-Hyperwar.cpp.obj: \
  D:\Maraxowanie\Programowanie\KCK\Finno-Korean\ Hyperwar\ Desktop\Finno-Korean-Hyperwar.cpp \
- C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/wx.h \
- C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/defs.h \
- C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/platform.h \
- C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/compiler.h \
- C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/lib/mswu/wx/setup.h \
- C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/msw/libraries.h \
- C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/msw/gccpriv.h \
- C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/msw/winver.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/x86_64-w64-mingw32/bits/stdc++.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/cassert \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/x86_64-w64-mingw32/bits/c++config.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/x86_64-w64-mingw32/bits/os_defines.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/x86_64-w64-mingw32/bits/cpu_defines.h \
+ C:/Users/Marax/mingw64/x86_64-w64-mingw32/include/assert.h \
+ C:/Users/Marax/mingw64/x86_64-w64-mingw32/include/crtdefs.h \
+ C:/Users/Marax/mingw64/x86_64-w64-mingw32/include/corecrt.h \
  C:/Users/Marax/mingw64/x86_64-w64-mingw32/include/_mingw.h \
  C:/Users/Marax/mingw64/x86_64-w64-mingw32/include/_mingw_mac.h \
  C:/Users/Marax/mingw64/x86_64-w64-mingw32/include/_mingw_secapi.h \
  C:/Users/Marax/mingw64/x86_64-w64-mingw32/include/vadefs.h \
  C:/Users/Marax/mingw64/x86_64-w64-mingw32/include/sdks/_mingw_ddk.h \
- C:/Users/Marax/mingw64/x86_64-w64-mingw32/include/w32api.h \
- C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/chkconf.h \
- C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/msw/chkconf.h \
- C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/version.h \
- C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/cpp.h \
- C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/dlimpexp.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/stddef.h \
- C:/Users/Marax/mingw64/x86_64-w64-mingw32/include/stddef.h \
- C:/Users/Marax/mingw64/x86_64-w64-mingw32/include/crtdefs.h \
- C:/Users/Marax/mingw64/x86_64-w64-mingw32/include/corecrt.h \
- C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/types.h \
- C:/Users/Marax/mingw64/x86_64-w64-mingw32/include/sys/types.h \
- C:/Users/Marax/mingw64/x86_64-w64-mingw32/include/_mingw_off_t.h \
- C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/debug.h \
- C:/Users/Marax/mingw64/x86_64-w64-mingw32/include/assert.h \
  C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/stdlib.h \
  C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/cstdlib \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/x86_64-w64-mingw32/bits/c++config.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/x86_64-w64-mingw32/bits/os_defines.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/x86_64-w64-mingw32/bits/cpu_defines.h \
  C:/Users/Marax/mingw64/x86_64-w64-mingw32/include/stdlib.h \
  C:/Users/Marax/mingw64/x86_64-w64-mingw32/include/corecrt_wstdlib.h \
  C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/limits.h \
@@ -43,33 +25,301 @@ CMakeFiles/Finno-Korean-Hyperwar.dir/Finno-Korean-Hyperwar.cpp.obj: \
  C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/mm_malloc.h \
  C:/Users/Marax/mingw64/x86_64-w64-mingw32/include/errno.h \
  C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/std_abs.h \
- C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/chartype.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/cctype \
+ C:/Users/Marax/mingw64/x86_64-w64-mingw32/include/ctype.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/cfloat \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/float.h \
+ C:/Users/Marax/mingw64/x86_64-w64-mingw32/include/float.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/ciso646 \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/climits \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/csetjmp \
+ C:/Users/Marax/mingw64/x86_64-w64-mingw32/include/setjmp.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/cstdarg \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/stdarg.h \
+ C:/Users/Marax/mingw64/x86_64-w64-mingw32/include/stdarg.h \
+ C:/Users/Marax/mingw64/x86_64-w64-mingw32/include/_mingw_stdarg.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/cstddef \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/stddef.h \
+ C:/Users/Marax/mingw64/x86_64-w64-mingw32/include/stddef.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/cstdint \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/stdint.h \
+ C:/Users/Marax/mingw64/x86_64-w64-mingw32/include/stdint.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/algorithm \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/stl_algobase.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/functexcept.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/exception_defines.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/cpp_type_traits.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/ext/type_traits.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/ext/numeric_traits.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/stl_pair.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/type_traits \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/move.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/utility.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/stl_iterator_base_types.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/stl_iterator_base_funcs.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/concept_check.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/debug/assertions.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/stl_iterator.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/ptr_traits.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/debug/debug.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/predefined_ops.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/stl_algo.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/algorithmfwd.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/initializer_list \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/stl_heap.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/uniform_int_dist.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/stl_tempbuf.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/new \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/exception.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/stl_construct.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bitset \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/string \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/requires_hosted.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/stringfwd.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/memoryfwd.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/char_traits.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/postypes.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/cwchar \
  C:/Users/Marax/mingw64/x86_64-w64-mingw32/include/wchar.h \
  C:/Users/Marax/mingw64/x86_64-w64-mingw32/include/corecrt_stdio_config.h \
+ C:/Users/Marax/mingw64/x86_64-w64-mingw32/include/_mingw_off_t.h \
  C:/Users/Marax/mingw64/x86_64-w64-mingw32/include/_mingw_stat64.h \
  C:/Users/Marax/mingw64/x86_64-w64-mingw32/include/swprintf.inl \
  C:/Users/Marax/mingw64/x86_64-w64-mingw32/include/sec_api/wchar_s.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/allocator.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/x86_64-w64-mingw32/bits/c++allocator.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/new_allocator.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/localefwd.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/x86_64-w64-mingw32/bits/c++locale.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/clocale \
+ C:/Users/Marax/mingw64/x86_64-w64-mingw32/include/locale.h \
+ C:/Users/Marax/mingw64/x86_64-w64-mingw32/include/stdio.h \
+ C:/Users/Marax/mingw64/x86_64-w64-mingw32/include/sec_api/stdio_s.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/iosfwd \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/ostream_insert.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/cxxabi_forced.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/stl_function.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/backward/binders.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/refwrap.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/invoke.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/range_access.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/basic_string.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/ext/alloc_traits.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/alloc_traits.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/ext/string_conversions.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/cstdio \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/cerrno \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/charconv.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/functional_hash.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/hash_bytes.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/basic_string.tcc \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/functional \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/tuple \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/uses_allocator.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/std_function.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/typeinfo \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/iterator \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/stream_iterator.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/streambuf_iterator.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/streambuf \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/ios_base.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/ext/atomicity.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/x86_64-w64-mingw32/bits/gthr.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/x86_64-w64-mingw32/bits/gthr-default.h \
+ C:/Users/Marax/mingw64/x86_64-w64-mingw32/include/sys/timeb.h \
+ C:/Users/Marax/mingw64/x86_64-w64-mingw32/include/sec_api/sys/timeb_s.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/x86_64-w64-mingw32/bits/atomic_word.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/locale_classes.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/locale_classes.tcc \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/system_error \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/x86_64-w64-mingw32/bits/error_constants.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/stdexcept \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/exception \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/exception_ptr.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/cxxabi_init_exception.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/nested_exception.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/streambuf.tcc \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/limits \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/memory \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/stl_uninitialized.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/stl_raw_storage_iter.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/align.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bit \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/unique_ptr.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/shared_ptr.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/shared_ptr_base.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/allocated_ptr.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/ext/aligned_buffer.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/ext/concurrence.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/shared_ptr_atomic.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/atomic_base.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/atomic_lockfree_defines.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/backward/auto_ptr.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/numeric \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/stl_numeric.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/utility \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/stl_relops.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/array \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/compare \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/atomic \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/ratio \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/scoped_allocator \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/typeindex \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/cmath \
+ C:/Users/Marax/mingw64/x86_64-w64-mingw32/include/math.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/csignal \
+ C:/Users/Marax/mingw64/x86_64-w64-mingw32/include/signal.h \
+ C:/Users/Marax/mingw64/x86_64-w64-mingw32/include/pthread_signal.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/cstring \
  C:/Users/Marax/mingw64/x86_64-w64-mingw32/include/string.h \
  C:/Users/Marax/mingw64/x86_64-w64-mingw32/include/sec_api/string_s.h \
- C:/Users/Marax/mingw64/x86_64-w64-mingw32/include/ctype.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/ctime \
+ C:/Users/Marax/mingw64/x86_64-w64-mingw32/include/time.h \
+ C:/Users/Marax/mingw64/x86_64-w64-mingw32/include/_timeval.h \
+ C:/Users/Marax/mingw64/x86_64-w64-mingw32/include/pthread_time.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/cwctype \
+ C:/Users/Marax/mingw64/x86_64-w64-mingw32/include/wctype.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/ccomplex \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/complex \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/sstream \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/istream \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/ios \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/basic_ios.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/locale_facets.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/x86_64-w64-mingw32/bits/ctype_base.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/x86_64-w64-mingw32/bits/ctype_inline.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/locale_facets.tcc \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/basic_ios.tcc \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/ostream \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/ostream.tcc \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/istream.tcc \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/sstream.tcc \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/cfenv \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/fenv.h \
+ C:/Users/Marax/mingw64/x86_64-w64-mingw32/include/fenv.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/cinttypes \
+ C:/Users/Marax/mingw64/x86_64-w64-mingw32/include/inttypes.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/cstdalign \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/stdalign.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/cstdbool \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/stdbool.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/ctgmath \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/cuchar \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/deque \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/stl_deque.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/deque.tcc \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/fstream \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/codecvt.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/x86_64-w64-mingw32/bits/basic_file.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/x86_64-w64-mingw32/bits/c++io.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/fstream.tcc \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/iomanip \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/locale \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/locale_facets_nonio.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/x86_64-w64-mingw32/bits/time_members.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/x86_64-w64-mingw32/bits/messages_members.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/locale_facets_nonio.tcc \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/locale_conv.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/iostream \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/list \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/stl_list.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/list.tcc \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/map \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/stl_tree.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/stl_map.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/stl_multimap.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/erase_if.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/queue \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/vector \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/stl_vector.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/stl_bvector.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/vector.tcc \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/stl_queue.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/set \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/stl_set.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/stl_multiset.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/stack \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/stl_stack.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/valarray \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/valarray_array.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/valarray_array.tcc \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/valarray_before.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/slice_array.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/valarray_after.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/gslice.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/gslice_array.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/mask_array.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/indirect_array.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/chrono \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/chrono.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/parse_numbers.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/codecvt \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/condition_variable \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/std_mutex.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/unique_lock.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/forward_list \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/forward_list.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/forward_list.tcc \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/future \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/mutex \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/thread \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/std_thread.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/this_thread_sleep.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/atomic_futex.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/random \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/random.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/x86_64-w64-mingw32/bits/opt_random.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/pmmintrin.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/emmintrin.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/xmmintrin.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/mmintrin.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/mwaitintrin.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/random.tcc \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/regex \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/regex_constants.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/regex_error.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/regex_automaton.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/regex_automaton.tcc \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/regex_scanner.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/regex_scanner.tcc \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/regex_compiler.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/regex_compiler.tcc \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/regex.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/regex.tcc \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/regex_executor.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/regex_executor.tcc \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/unordered_map \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/unordered_map.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/hashtable.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/hashtable_policy.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/enable_special_members.h \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/unordered_set \
+ C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/unordered_set.h \
+ C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/wx.h \
+ C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/defs.h \
+ C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/platform.h \
+ C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/compiler.h \
+ C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/lib/mswu/wx/setup.h \
+ C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/msw/libraries.h \
+ C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/msw/gccpriv.h \
+ C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/msw/winver.h \
+ C:/Users/Marax/mingw64/x86_64-w64-mingw32/include/w32api.h \
+ C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/chkconf.h \
+ C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/msw/chkconf.h \
+ C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/version.h \
+ C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/cpp.h \
+ C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/dlimpexp.h \
+ C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/types.h \
+ C:/Users/Marax/mingw64/x86_64-w64-mingw32/include/sys/types.h \
+ C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/debug.h \
+ C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/chartype.h \
  C:/Users/Marax/mingw64/x86_64-w64-mingw32/include/tchar.h \
  C:/Users/Marax/mingw64/x86_64-w64-mingw32/include/sec_api/tchar_s.h \
  C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/features.h \
  C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/object.h \
  C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/memory.h \
  C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/string.h \
- C:/Users/Marax/mingw64/x86_64-w64-mingw32/include/stdio.h \
- C:/Users/Marax/mingw64/x86_64-w64-mingw32/include/sec_api/stdio_s.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/stdarg.h \
- C:/Users/Marax/mingw64/x86_64-w64-mingw32/include/stdarg.h \
- C:/Users/Marax/mingw64/x86_64-w64-mingw32/include/_mingw_stdarg.h \
  C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/wxcrtbase.h \
- C:/Users/Marax/mingw64/x86_64-w64-mingw32/include/wctype.h \
- C:/Users/Marax/mingw64/x86_64-w64-mingw32/include/time.h \
- C:/Users/Marax/mingw64/x86_64-w64-mingw32/include/sys/timeb.h \
- C:/Users/Marax/mingw64/x86_64-w64-mingw32/include/sec_api/sys/timeb_s.h \
- C:/Users/Marax/mingw64/x86_64-w64-mingw32/include/_timeval.h \
- C:/Users/Marax/mingw64/x86_64-w64-mingw32/include/pthread_time.h \
  C:/Users/Marax/mingw64/x86_64-w64-mingw32/include/io.h \
  C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/strvararg.h \
  C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/strconv.h \
@@ -78,77 +328,9 @@ CMakeFiles/Finno-Korean-Hyperwar.dir/Finno-Korean-Hyperwar.cpp.obj: \
  C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/unichar.h \
  C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/stringimpl.h \
  C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/beforestd.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/string \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/requires_hosted.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/stringfwd.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/memoryfwd.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/char_traits.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/postypes.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/cwchar \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/type_traits \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/allocator.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/x86_64-w64-mingw32/bits/c++allocator.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/new_allocator.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/new \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/exception.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/functexcept.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/exception_defines.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/move.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/cpp_type_traits.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/localefwd.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/x86_64-w64-mingw32/bits/c++locale.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/clocale \
- C:/Users/Marax/mingw64/x86_64-w64-mingw32/include/locale.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/iosfwd \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/cctype \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/ostream_insert.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/cxxabi_forced.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/stl_iterator_base_funcs.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/concept_check.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/debug/assertions.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/stl_iterator_base_types.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/stl_iterator.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/ext/type_traits.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/ptr_traits.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/stl_function.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/backward/binders.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/ext/numeric_traits.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/stl_algobase.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/stl_pair.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/utility.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/debug/debug.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/predefined_ops.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/refwrap.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/invoke.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/range_access.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/initializer_list \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/basic_string.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/ext/alloc_traits.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/alloc_traits.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/stl_construct.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/ext/string_conversions.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/cstdio \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/cerrno \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/charconv.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/functional_hash.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/hash_bytes.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/basic_string.tcc \
  C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/afterstd.h \
  C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/msw/winundef.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/algorithm \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/stl_algo.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/algorithmfwd.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/stl_heap.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/uniform_int_dist.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/stl_tempbuf.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/utility \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/stl_relops.h \
  C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/stringops.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/functional \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/tuple \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/uses_allocator.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/std_function.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/typeinfo \
  C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/iosfwrap.h \
  C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/msgout.h \
  C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/xti.h \
@@ -162,35 +344,11 @@ CMakeFiles/Finno-Korean-Hyperwar.dir/Finno-Korean-Hyperwar.cpp.obj: \
  C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/meta/movable.h \
  C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/meta/pod.h \
  C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/meta/if.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/iterator \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/stream_iterator.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/streambuf_iterator.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/streambuf \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/ios_base.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/ext/atomicity.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/x86_64-w64-mingw32/bits/gthr.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/x86_64-w64-mingw32/bits/gthr-default.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/x86_64-w64-mingw32/bits/atomic_word.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/locale_classes.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/locale_classes.tcc \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/system_error \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/x86_64-w64-mingw32/bits/error_constants.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/stdexcept \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/exception \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/exception_ptr.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/cxxabi_init_exception.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/nested_exception.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/streambuf.tcc \
  C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/list.h \
  C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/hash.h \
  C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/hashmap.h \
  C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/wxcrt.h \
  C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/arrstr.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/vector \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/stl_uninitialized.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/stl_vector.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/stl_bvector.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/vector.tcc \
  C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/intl.h \
  C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/localedefs.h \
  C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/translation.h \
@@ -200,15 +358,12 @@ CMakeFiles/Finno-Korean-Hyperwar.dir/Finno-Korean-Hyperwar.cpp.obj: \
  C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/log.h \
  C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/time.h \
  C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/longlong.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/limits \
  C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/thread.h \
  C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/generic/logg.h \
  C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/event.h \
  C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/clntdata.h \
  C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/math.h \
  C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/math.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/cmath \
- C:/Users/Marax/mingw64/x86_64-w64-mingw32/include/math.h \
  C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/gdicmn.h \
  C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/cursor.h \
  C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/gdiobj.h \
@@ -272,7 +427,6 @@ CMakeFiles/Finno-Korean-Hyperwar.dir/Finno-Korean-Hyperwar.cpp.obj: \
  C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/lzcntintrin.h \
  C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/lwpintrin.h \
  C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/movdirintrin.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/mwaitintrin.h \
  C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/mwaitxintrin.h \
  C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/pconfigintrin.h \
  C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/popcntintrin.h \
@@ -295,10 +449,6 @@ CMakeFiles/Finno-Korean-Hyperwar.dir/Finno-Korean-Hyperwar.cpp.obj: \
  C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/xtestintrin.h \
  C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/hresetintrin.h \
  C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/immintrin.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/mmintrin.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/xmmintrin.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/emmintrin.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/pmmintrin.h \
  C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/tmmintrin.h \
  C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/smmintrin.h \
  C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/wmmintrin.h \
@@ -603,19 +753,6 @@ CMakeFiles/Finno-Korean-Hyperwar.dir/Finno-Korean-Hyperwar.cpp.obj: \
  C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/textentry.h \
  C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/msw/textentry.h \
  C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/ioswrap.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/iostream \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/ostream \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/ios \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/basic_ios.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/locale_facets.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/cwctype \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/x86_64-w64-mingw32/bits/ctype_base.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/x86_64-w64-mingw32/bits/ctype_inline.h \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/locale_facets.tcc \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/basic_ios.tcc \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/ostream.tcc \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/istream \
- C:/Users/Marax/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/bits/istream.tcc \
  C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/msw/textctrl.h \
  C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/slider.h \
  C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/msw/slider.h \
@@ -643,4 +780,12 @@ CMakeFiles/Finno-Korean-Hyperwar.dir/Finno-Korean-Hyperwar.cpp.obj: \
  C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/filedlg.h \
  C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/msw/filedlg.h \
  C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/mdi.h \
- C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/msw/mdi.h
+ C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/msw/mdi.h \
+ D:\Maraxowanie\Programowanie\KCK\Finno-Korean\ Hyperwar\ Desktop\Files/View.h \
+ C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/artprov.h \
+ C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/xrc/xmlres.h \
+ C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/filesys.h \
+ C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/filename.h \
+ C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/file.h \
+ C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/convauto.h \
+ C:/Users/Marax/source/repos/vcpkg/installed/x64-windows/include/wx/xrc/xmlreshandler.h
