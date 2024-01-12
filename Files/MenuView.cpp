@@ -3,38 +3,65 @@
 #include <string>
 #include <SFML/Graphics.hpp>
 #include "MenuView.h"
+#include "GameView.h"
+#include "Functions.h"
 
 void showMenu(sf::RenderWindow& window){
+    // Path
+    std::filesystem::path currentPath = std::filesystem::path(__FILE__).parent_path().parent_path();
+    std::cout << currentPath << "\n";
+
     // Define font and text for menu options
-    sf::Font font;
-    if (!font.loadFromFile("D:\\Maraxowanie\\Programowanie\\KCK\\Finno-Korean Hyperwar Desktop\\Resources\\arial.ttf")) {
+    sf::Font font_arial;
+    if (!font_arial.loadFromFile((currentPath / "Resources" / "arial.ttf").string())) {
         std::cerr << "Error loading font." << std::endl;
     }
 
-    sf::Texture backgroundTexture;
-    if (!backgroundTexture.loadFromFile("D:/Maraxowanie/Programowanie/KCK/Finno-Korean Hyperwar Desktop/Resources/menu_background.jpg")) {
-        std::cerr << "Error loading font." << std::endl;
+    sf::Texture menuBackgroundTexture;
+    if (!menuBackgroundTexture.loadFromFile((currentPath / "Resources" / "menu_background.jpg").string())) {
+        std::cerr << "Error loading menuBackground." << std::endl;
     }
-    sf::Sprite backgroundSprite(backgroundTexture);
+    sf::Sprite menuBackgroundSprite(menuBackgroundTexture);
 
-    sf::Text option1("Start", font, 30);
-    sf::Text option2("Options", font, 30);
-    sf::Text option3("Credits", font, 30);
-    sf::Text option4("Exit", font, 30);
+    // Get the original size of the texture
+    sf::Vector2u originalSize = menuBackgroundTexture.getSize();
+    // Get the window size
+    sf::Vector2u windowSize = window.getSize();
 
-    sf::Text titleText("Finno-Korean Hyperwar", font, 50);
+    // Calculate the scale factor to fit the image into the window
+    float scaleX = static_cast<float>(windowSize.x) / originalSize.x;
+    float scaleY = static_cast<float>(windowSize.y) / originalSize.y;
+    // Set the scale of the sprite
+    menuBackgroundSprite.setScale(scaleX, scaleY);
+
+    sf::Text titleText("Finno-Korean Hyperwar", font_arial, 50);
+    titleText.setOutlineThickness(2);
+
+    sf::Text menuText0("New Game", font_arial, 30);
+    sf::Text menuText1("Load Game", font_arial, 30);
+    sf::Text menuText2("Settings", font_arial, 30);
+    sf::Text menuText3("Credits", font_arial, 30);
+    sf::Text menuText4("Exit", font_arial, 30);
+
+    menuText0.setOutlineThickness(2);
+    menuText1.setOutlineThickness(2);
+    menuText2.setOutlineThickness(2);
+    menuText3.setOutlineThickness(2);
+    menuText4.setOutlineThickness(2);
+
     titleText.setFillColor(sf::Color::Red);
 
     // Set initial positions for menu options
-    titleText.setPosition(30, 0);
-    option1.setPosition(260, 200);
-    option2.setPosition(260, 250);
-    option3.setPosition(260, 300);
-    option4.setPosition(260, 350);
-
+    titleText.setPosition((window.getSize().x - titleText.getGlobalBounds().width) / 2, 0);
+    menuText0.setPosition((window.getSize().x - menuText0.getGlobalBounds().width) / 2, 180);
+    menuText1.setPosition((window.getSize().x - menuText1.getGlobalBounds().width) / 2, 230);
+    menuText2.setPosition((window.getSize().x - menuText2.getGlobalBounds().width) / 2, 280);
+    menuText3.setPosition((window.getSize().x - menuText3.getGlobalBounds().width) / 2, 330);
+    menuText4.setPosition((window.getSize().x - menuText4.getGlobalBounds().width) / 2, 380);
     // Highlighted option
-    sf::Text highlightedOption("", font, 30);
+    sf::Text highlightedOption("", font_arial, 30);
     highlightedOption.setFillColor(sf::Color::Red);
+    //highlightedOption.setOutlineThickness(2);
 
     int selectedOption = 0;
 
@@ -47,16 +74,27 @@ void showMenu(sf::RenderWindow& window){
             // Handle key presses for menu navigation
             if (event.type == sf::Event::KeyPressed) {
                 if (event.key.code == sf::Keyboard::Up) {
-                    selectedOption = (selectedOption - 1 + 4) % 4;
+                    selectedOption = (selectedOption - 1 + 5) % 5;
                 } else if (event.key.code == sf::Keyboard::Down) {
-                    selectedOption = (selectedOption + 1) % 4;
+                    selectedOption = (selectedOption + 1) % 5;
                 } else if (event.key.code == sf::Keyboard::Enter) {
                     // If Enter key is pressed, perform the action associated with the selected option
                     switch (selectedOption) {
                         case 0:
                             showMap(window);
                             break;
-                        // Add cases for other options if needed
+                        case 1:
+                            std::cout << "Bazinga";
+                            break;
+                        case 2:
+                            showSettings(window);
+                            break;
+                        case 3:
+                            showCredits(window);
+                            break;
+                        case 4:
+                            std::cout << "Exit";
+                            break;
                     }
                 }
             }
@@ -64,14 +102,16 @@ void showMenu(sf::RenderWindow& window){
             // Handle mouse movement for menu navigation
             if (event.type == sf::Event::MouseMoved) {
                 sf::Vector2f mousePos = window.mapPixelToCoords(sf::Mouse::getPosition(window));
-                if (option1.getGlobalBounds().contains(mousePos)) {
+                if (menuText0.getGlobalBounds().contains(mousePos)) {
                     selectedOption = 0;
-                } else if (option2.getGlobalBounds().contains(mousePos)) {
+                } else if (menuText1.getGlobalBounds().contains(mousePos)) {
                     selectedOption = 1;
-                } else if (option3.getGlobalBounds().contains(mousePos)) {
+                } else if (menuText2.getGlobalBounds().contains(mousePos)) {
                     selectedOption = 2;
-                } else if (option4.getGlobalBounds().contains(mousePos)) {
+                } else if (menuText3.getGlobalBounds().contains(mousePos)) {
                     selectedOption = 3;
+                } else if (menuText4.getGlobalBounds().contains(mousePos)) {
+                    selectedOption = 4;
                 }
             }
 
@@ -79,9 +119,26 @@ void showMenu(sf::RenderWindow& window){
             if (event.type == sf::Event::MouseButtonPressed) {
                 if (event.mouseButton.button == sf::Mouse::Left) {
                     sf::Vector2f mousePos = window.mapPixelToCoords(sf::Mouse::getPosition(window));
-                    if (option1.getGlobalBounds().contains(mousePos)) {
+                    if (menuText0.getGlobalBounds().contains(mousePos)) {
                         // If "Start" is clicked, open a new window (e.g., showMap)
                         showMap(window);
+                        return;
+                    }
+                    if (menuText1.getGlobalBounds().contains(mousePos)) {
+                        // If "Start" is clicked, open a new window (e.g., showMap)
+                        std::cout << "Bazinga";
+                    }
+                    if (menuText2.getGlobalBounds().contains(mousePos)) {
+                        // If "Start" is clicked, open a new window (e.g., showMap)
+                        showSettings(window);
+                    }
+                    if (menuText3.getGlobalBounds().contains(mousePos)) {
+                        // If "Start" is clicked, open a new window (e.g., showMap)
+                        showCredits(window);
+                    }
+                    if (menuText4.getGlobalBounds().contains(mousePos)) {
+                        // If "Start" is clicked, open a new window (e.g., showMap)
+                        std::cout << "Exit";
                     }
                 }
             }
@@ -90,32 +147,36 @@ void showMenu(sf::RenderWindow& window){
         // Set highlighted text based on selected option
         switch (selectedOption) {
         case 0:
-            highlightedOption.setString(option1.getString());
-            highlightedOption.setPosition(option1.getPosition());
+            highlightedOption.setString(menuText0.getString());
+            highlightedOption.setPosition(menuText0.getPosition());
             break;
         case 1:
-            highlightedOption.setString(option2.getString());
-            highlightedOption.setPosition(option2.getPosition());
+            highlightedOption.setString(menuText1.getString());
+            highlightedOption.setPosition(menuText1.getPosition());
             break;
         case 2:
-            highlightedOption.setString(option3.getString());
-            highlightedOption.setPosition(option3.getPosition());
+            highlightedOption.setString(menuText2.getString());
+            highlightedOption.setPosition(menuText2.getPosition());
             break;
         case 3:
-            highlightedOption.setString(option4.getString());
-            highlightedOption.setPosition(option4.getPosition());
+            highlightedOption.setString(menuText3.getString());
+            highlightedOption.setPosition(menuText3.getPosition());
+            break;
+        case 4:
+            highlightedOption.setString(menuText4.getString());
+            highlightedOption.setPosition(menuText4.getPosition());
             break;
     }
 
         window.clear();
-        window.draw(backgroundSprite);
+        window.draw(menuBackgroundSprite);
         window.draw(titleText);
         // Draw menu options
-        window.draw(option1);
-        window.draw(option2);
-        window.draw(option3);
-        window.draw(option4);
-
+        window.draw(menuText0);
+        window.draw(menuText1);
+        window.draw(menuText2);
+        window.draw(menuText3);
+        window.draw(menuText4);
         // Draw highlighted option
         window.draw(highlightedOption);
 

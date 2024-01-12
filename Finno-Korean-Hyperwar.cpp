@@ -3,7 +3,9 @@
 #include "Files/MenuView.h"
 
 int main() {
-    sf::RenderWindow window(sf::VideoMode(600, 600), "FK-Hyperwar");
+    
+    sf::RenderWindow window(sf::VideoMode(800, 600), "FK-Hyperwar");
+
     showMenu(window);
 
     return 0;

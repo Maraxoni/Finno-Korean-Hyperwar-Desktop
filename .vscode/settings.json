@@ -1,9 +1,7 @@
 {
+    "C_Cpp.errorSquiggles": "disabled",
     "files.associations": {
-        "string": "cpp",
-        "format": "cpp",
         "iostream": "cpp",
-        "string_view": "cpp",
         "any": "cpp",
         "array": "cpp",
         "atomic": "cpp",
@@ -42,6 +40,7 @@
         "list": "cpp",
         "map": "cpp",
         "set": "cpp",
+        "string": "cpp",
         "unordered_map": "cpp",
         "unordered_set": "cpp",
         "vector": "cpp",
@@ -58,10 +57,12 @@
         "ratio": "cpp",
         "regex": "cpp",
         "source_location": "cpp",
+        "string_view": "cpp",
         "system_error": "cpp",
         "tuple": "cpp",
         "type_traits": "cpp",
         "utility": "cpp",
+        "format": "cpp",
         "fstream": "cpp",
         "future": "cpp",
         "initializer_list": "cpp",
@@ -92,6 +93,5 @@
         "typeinfo": "cpp",
         "valarray": "cpp",
         "variant": "cpp"
-    },
-    "C_Cpp.errorSquiggles": "disabled"
+    }
 }
