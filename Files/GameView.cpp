@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 #include <SFML/Graphics.hpp>
 #include "GameView.h"
+#include "MenuView.h"
 
 void showMap(sf::RenderWindow& window){
     std::filesystem::path currentPath = std::filesystem::path(__FILE__).parent_path().parent_path();
@@ -22,8 +23,8 @@ void showMap(sf::RenderWindow& window){
     // Set the scale of the sprite
     mapSprite.setScale(scaleX, scaleY);
 
-    std::cout << "Game";
-    
+    std::cout << "GameFunction\n";
+
     while(window.isOpen()){
         sf::Event event;
         while (window.pollEvent(event)) {
@@ -81,7 +82,17 @@ void showGameMenu(sf::RenderWindow& window){
     gameMenuText4.setPosition((window.getSize().x - gameMenuText4.getGlobalBounds().width) / 2, 380);
     gameMenuText5.setPosition((window.getSize().x - gameMenuText5.getGlobalBounds().width) / 2, 430);
 
-    std::cout << "GameMenu";
+    float rectangleX = (gameMenuText4.getGlobalBounds().width);
+    float rectangleY = (430 - 180 + 20 + 5);
+    sf::RectangleShape gameMenuRectangle(sf::Vector2f(rectangleX, rectangleY)); // Set the size of the rectangle
+    
+    gameMenuRectangle.setPosition((window.getSize().x - gameMenuRectangle.getGlobalBounds().width)/2, 180);
+
+    // Set the color of the rectangle
+    gameMenuRectangle.setFillColor(sf::Color::Magenta);
+    gameMenuRectangle.setOutlineThickness(2);
+
+    std::cout << "GameMenuFunction\n";
 
     int selectedOption = 0;
 
@@ -128,23 +139,27 @@ void showGameMenu(sf::RenderWindow& window){
                     }
                     if (gameMenuText4.getGlobalBounds().contains(mousePos)) {
                         // If "Start" is clicked, open a new window (e.g., showMap)
-                        std::cout << "Main Menu";
+                        showMenu(window);
+                        break;
                     }
                     if (gameMenuText5.getGlobalBounds().contains(mousePos)) {
                         // If "Start" is clicked, open a new window (e.g., showMap)
                         std::cout << "Exit Game";
+                        break;
                     }
                 }
             }
         }
 
         //window.clear();
+        window.draw(gameMenuRectangle); 
         window.draw(gameMenuText0);
         window.draw(gameMenuText1);
         window.draw(gameMenuText2);
         window.draw(gameMenuText3);
         window.draw(gameMenuText4);
         window.draw(gameMenuText5);
+
         //window.draw(gameMenuText0);
         window.display();
     }
