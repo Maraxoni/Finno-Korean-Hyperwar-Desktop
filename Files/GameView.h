@@ -1,0 +1,1 @@
+void showMap(sf::RenderWindow& window);

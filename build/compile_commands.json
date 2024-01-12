@@ -1,8 +1,0 @@
-[
-{
-  "directory": "D:/Maraxowanie/Programowanie/KCK/Finno-Korean Hyperwar Desktop/build",
-  "command": "C:\\Users\\Marax\\mingw64\\bin\\g++.exe -DUNICODE -D_UNICODE @CMakeFiles/Finno-Korean-Hyperwar.dir/includes_CXX.rsp -g -std=gnu++11 -o CMakeFiles\\Finno-Korean-Hyperwar.dir\\Finno-Korean-Hyperwar.cpp.obj -c \"D:\\Maraxowanie\\Programowanie\\KCK\\Finno-Korean Hyperwar Desktop\\Finno-Korean-Hyperwar.cpp\"",
-  "file": "D:/Maraxowanie/Programowanie/KCK/Finno-Korean Hyperwar Desktop/Finno-Korean-Hyperwar.cpp",
-  "output": "CMakeFiles/Finno-Korean-Hyperwar.dir/Finno-Korean-Hyperwar.cpp.obj"
-}
-]

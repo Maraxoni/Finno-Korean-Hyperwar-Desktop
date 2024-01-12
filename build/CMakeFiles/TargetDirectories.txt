@@ -1,3 +1,0 @@
-D:/Maraxowanie/Programowanie/KCK/Finno-Korean Hyperwar Desktop/build/CMakeFiles/Finno-Korean-Hyperwar.dir
-D:/Maraxowanie/Programowanie/KCK/Finno-Korean Hyperwar Desktop/build/CMakeFiles/edit_cache.dir
-D:/Maraxowanie/Programowanie/KCK/Finno-Korean Hyperwar Desktop/build/CMakeFiles/rebuild_cache.dir
