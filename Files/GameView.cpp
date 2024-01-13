@@ -3,7 +3,7 @@
 #include "GameView.h"
 #include "MenuView.h"
 
-void showMap(sf::RenderWindow& window){
+void showMap(sf::RenderWindow& window) {
     std::filesystem::path currentPath = std::filesystem::path(__FILE__).parent_path().parent_path();
 
     sf::Texture mapTexture;
@@ -23,9 +23,22 @@ void showMap(sf::RenderWindow& window){
     // Set the scale of the sprite
     mapSprite.setScale(scaleX, scaleY);
 
+    sf::RectangleShape topRectangle(sf::Vector2f(800, 100)); // Set the size of the rectangle
+    sf::RectangleShape bottomRectangle(sf::Vector2f(800, 100)); // Set the size of the rectangle
+
+    topRectangle.setPosition(0, 0);
+    bottomRectangle.setPosition(0, 500);
+
+    // Set the color of the rectangle
+    topRectangle.setFillColor(sf::Color::Black);
+    bottomRectangle.setFillColor(sf::Color::Magenta);
+
+    topRectangle.setOutlineThickness(2);
+    bottomRectangle.setOutlineThickness(2);
+
     std::cout << "GameFunction\n";
 
-    while(window.isOpen()){
+    while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event)) {
             if (event.type == sf::Event::Closed)
@@ -39,19 +52,23 @@ void showMap(sf::RenderWindow& window){
 
             }
 
-            if(event.type == sf::Event::KeyPressed){
-                if(event.key.code == sf::Keyboard::Escape){
-                    showGameMenu(window);
+            if (event.type == sf::Event::KeyPressed) {
+                if (event.key.code == sf::Keyboard::Escape) {
+                    if(showGameMenu(window)){
+                        return;
+                    }
                 }
             }
         }
         window.clear();
         window.draw(mapSprite);
+        window.draw(topRectangle);
+        window.draw(bottomRectangle);
         window.display();
     }
 }
 
-void showGameMenu(sf::RenderWindow& window){
+bool showGameMenu(sf::RenderWindow& window) {
     std::filesystem::path currentPath = std::filesystem::path(__FILE__).parent_path().parent_path();
 
     // Define font and text for menu options
@@ -75,18 +92,18 @@ void showGameMenu(sf::RenderWindow& window){
     gameMenuText5.setOutlineThickness(2);
 
     // Set initial positions for menu options
-    gameMenuText0.setPosition((window.getSize().x - gameMenuText0.getGlobalBounds().width) / 2, 180);
-    gameMenuText1.setPosition((window.getSize().x - gameMenuText1.getGlobalBounds().width) / 2, 230);
-    gameMenuText2.setPosition((window.getSize().x - gameMenuText2.getGlobalBounds().width) / 2, 280);
-    gameMenuText3.setPosition((window.getSize().x - gameMenuText3.getGlobalBounds().width) / 2, 330);
-    gameMenuText4.setPosition((window.getSize().x - gameMenuText4.getGlobalBounds().width) / 2, 380);
-    gameMenuText5.setPosition((window.getSize().x - gameMenuText5.getGlobalBounds().width) / 2, 430);
+    gameMenuText0.setPosition((800 - gameMenuText0.getGlobalBounds().width) / 2, 180);
+    gameMenuText1.setPosition((800 - gameMenuText1.getGlobalBounds().width) / 2, 230);
+    gameMenuText2.setPosition((800 - gameMenuText2.getGlobalBounds().width) / 2, 280);
+    gameMenuText3.setPosition((800 - gameMenuText3.getGlobalBounds().width) / 2, 330);
+    gameMenuText4.setPosition((800 - gameMenuText4.getGlobalBounds().width) / 2, 380);
+    gameMenuText5.setPosition((800 - gameMenuText5.getGlobalBounds().width) / 2, 430);
 
     float rectangleX = (gameMenuText4.getGlobalBounds().width);
     float rectangleY = (430 - 180 + 20 + 5);
     sf::RectangleShape gameMenuRectangle(sf::Vector2f(rectangleX, rectangleY)); // Set the size of the rectangle
-    
-    gameMenuRectangle.setPosition((window.getSize().x - gameMenuRectangle.getGlobalBounds().width)/2, 180);
+
+    gameMenuRectangle.setPosition((800 - gameMenuRectangle.getGlobalBounds().width) / 2, 180);
 
     // Set the color of the rectangle
     gameMenuRectangle.setFillColor(sf::Color::Magenta);
@@ -96,7 +113,7 @@ void showGameMenu(sf::RenderWindow& window){
 
     int selectedOption = 0;
 
-    while(window.isOpen()){
+    while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event)) {
             if (event.type == sf::Event::Closed)
@@ -106,13 +123,17 @@ void showGameMenu(sf::RenderWindow& window){
                 sf::Vector2f mousePos = window.mapPixelToCoords(sf::Mouse::getPosition(window));
                 if (gameMenuText0.getGlobalBounds().contains(mousePos)) {
                     selectedOption = 0;
-                } else if (gameMenuText1.getGlobalBounds().contains(mousePos)) {
+                }
+                else if (gameMenuText1.getGlobalBounds().contains(mousePos)) {
                     selectedOption = 1;
-                } else if (gameMenuText2.getGlobalBounds().contains(mousePos)) {
+                }
+                else if (gameMenuText2.getGlobalBounds().contains(mousePos)) {
                     selectedOption = 2;
-                } else if (gameMenuText3.getGlobalBounds().contains(mousePos)) {
+                }
+                else if (gameMenuText3.getGlobalBounds().contains(mousePos)) {
                     selectedOption = 3;
-                } else if (gameMenuText4.getGlobalBounds().contains(mousePos)) {
+                }
+                else if (gameMenuText4.getGlobalBounds().contains(mousePos)) {
                     selectedOption = 4;
                 }
             }
@@ -122,29 +143,32 @@ void showGameMenu(sf::RenderWindow& window){
                     sf::Vector2f mousePos = window.mapPixelToCoords(sf::Mouse::getPosition(window));
                     if (gameMenuText0.getGlobalBounds().contains(mousePos)) {
                         // If "Start" is clicked, open a new window (e.g., showMap)
+                        std::cout << "Mouse Resume\n";
                         window.clear();
-                        return;
+                        return 0;
                     }
                     if (gameMenuText1.getGlobalBounds().contains(mousePos)) {
                         // If "Start" is clicked, open a new window (e.g., showMap)
-                        std::cout << "Save";
+                        std::cout << "Mouse Save\n";
                     }
                     if (gameMenuText2.getGlobalBounds().contains(mousePos)) {
                         // If "Start" is clicked, open a new window (e.g., showMap)
-                        std::cout << "Load";
+                        std::cout << "Mouse Load\n";
                     }
                     if (gameMenuText3.getGlobalBounds().contains(mousePos)) {
                         // If "Start" is clicked, open a new window (e.g., showMap)
-                        std::cout << "Settings";
+                        std::cout << "Mouse Settings\n";
                     }
                     if (gameMenuText4.getGlobalBounds().contains(mousePos)) {
                         // If "Start" is clicked, open a new window (e.g., showMap)
-                        showMenu(window);
+                        std::cout << "Mouse Main Menu\n";
+                        return 1;
                         break;
                     }
                     if (gameMenuText5.getGlobalBounds().contains(mousePos)) {
                         // If "Start" is clicked, open a new window (e.g., showMap)
-                        std::cout << "Exit Game";
+                        std::cout << "Mouse Exit Game\n";
+                        window.close();
                         break;
                     }
                 }
@@ -152,7 +176,7 @@ void showGameMenu(sf::RenderWindow& window){
         }
 
         //window.clear();
-        window.draw(gameMenuRectangle); 
+        window.draw(gameMenuRectangle);
         window.draw(gameMenuText0);
         window.draw(gameMenuText1);
         window.draw(gameMenuText2);
@@ -163,4 +187,5 @@ void showGameMenu(sf::RenderWindow& window){
         //window.draw(gameMenuText0);
         window.display();
     }
+    return 0;
 }

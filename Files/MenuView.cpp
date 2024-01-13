@@ -6,22 +6,19 @@
 #include "GameView.h"
 #include "Functions.h"
 
-void showMenu(sf::RenderWindow &window)
-{
+void showMenu(sf::RenderWindow& window) {
     // Path
     std::filesystem::path currentPath = std::filesystem::path(__FILE__).parent_path().parent_path();
     std::cout << currentPath << "\n";
 
     // Define font and text for menu options
     sf::Font font_arial;
-    if (!font_arial.loadFromFile((currentPath / "Resources" / "arial.ttf").string()))
-    {
+    if (!font_arial.loadFromFile((currentPath / "Resources" / "arial.ttf").string())) {
         std::cerr << "Error loading font." << std::endl;
     }
 
     sf::Texture menuBackgroundTexture;
-    if (!menuBackgroundTexture.loadFromFile((currentPath / "Resources" / "menu_background.jpg").string()))
-    {
+    if (!menuBackgroundTexture.loadFromFile((currentPath / "Resources" / "menu_background.jpg").string())) {
         std::cerr << "Error loading menuBackground." << std::endl;
     }
     sf::Sprite menuBackgroundSprite(menuBackgroundTexture);
@@ -69,116 +66,92 @@ void showMenu(sf::RenderWindow &window)
     std::cout << "MenuFunction\n";
 
     int selectedOption = 0;
-    int goNext = -1;
 
-    while (window.isOpen())
-    {
+    while (window.isOpen()) {
         sf::Event event;
-        while (window.pollEvent(event))
-        {
+        while (window.pollEvent(event)) {
             if (event.type == sf::Event::Closed)
                 window.close();
 
             // Handle key presses for menu navigation
-            if (event.type == sf::Event::KeyPressed)
-            {
-                if (event.key.code == sf::Keyboard::Up)
-                {
+            if (event.type == sf::Event::KeyPressed) {
+                if (event.key.code == sf::Keyboard::Up) {
                     selectedOption = (selectedOption - 1 + 5) % 5;
                 }
-                else if (event.key.code == sf::Keyboard::Down)
-                {
+                else if (event.key.code == sf::Keyboard::Down) {
                     selectedOption = (selectedOption + 1) % 5;
                 }
-                else if (event.key.code == sf::Keyboard::Enter)
-                {
+                else if (event.key.code == sf::Keyboard::Enter) {
                     // If Enter key is pressed, perform the action associated with the selected option
-                    switch (selectedOption)
-                    {
+                    switch (selectedOption) {
                     case 0:
-                        goNext = 0;
+                        std::cout << "Enter New Game\n";
+                        showMap(window);
                         break;
                     case 1:
-                        goNext = 1;
+                        std::cout << "Enter Load Game\n";
                         break;
                     case 2:
-                        goNext = 2;
+                        std::cout << "Enter Options\n";
                         break;
                     case 3:
-                        goNext = 3;
+                        std::cout << "Enter Credits\n";
                         break;
                     case 4:
-                        goNext = 4;
+                        std::cout << "Enter Exit\n";
+                        return;
                         break;
                     }
                 }
             }
 
             // Handle mouse movement for menu navigation
-            if (event.type == sf::Event::MouseMoved)
-            {
+            if (event.type == sf::Event::MouseMoved) {
                 sf::Vector2f mousePos = window.mapPixelToCoords(sf::Mouse::getPosition(window));
-                if (menuText0.getGlobalBounds().contains(mousePos))
-                {
+                if (menuText0.getGlobalBounds().contains(mousePos)) {
                     selectedOption = 0;
                 }
-                else if (menuText1.getGlobalBounds().contains(mousePos))
-                {
+                else if (menuText1.getGlobalBounds().contains(mousePos)) {
                     selectedOption = 1;
                 }
-                else if (menuText2.getGlobalBounds().contains(mousePos))
-                {
+                else if (menuText2.getGlobalBounds().contains(mousePos)) {
                     selectedOption = 2;
                 }
-                else if (menuText3.getGlobalBounds().contains(mousePos))
-                {
+                else if (menuText3.getGlobalBounds().contains(mousePos)) {
                     selectedOption = 3;
                 }
-                else if (menuText4.getGlobalBounds().contains(mousePos))
-                {
+                else if (menuText4.getGlobalBounds().contains(mousePos)) {
                     selectedOption = 4;
                 }
             }
 
             // Handle mouse click
-            if (event.type == sf::Event::MouseButtonPressed)
-            {
-                if (event.mouseButton.button == sf::Mouse::Left)
-                {
+            if (event.type == sf::Event::MouseButtonPressed) {
+                if (event.mouseButton.button == sf::Mouse::Left) {
                     sf::Vector2f mousePos = window.mapPixelToCoords(sf::Mouse::getPosition(window));
-                    if (menuText0.getGlobalBounds().contains(mousePos))
-                    {
-                        // If "Start" is clicked, open a new window (e.g., showMap)
+                    if (menuText0.getGlobalBounds().contains(mousePos)) {
+                        std::cout << "Mouse New Game\n";
                         showMap(window);
+                    }
+                    if (menuText1.getGlobalBounds().contains(mousePos)) {
+                        std::cout << "Mouse Load Game\n";
+                    }
+                    if (menuText2.getGlobalBounds().contains(mousePos)) {
+                        std::cout << "Mouse Options\n";
+                    }
+                    if (menuText3.getGlobalBounds().contains(mousePos)) {
+                        std::cout << "Mouse Credits\n";
+                    }
+                    if (menuText4.getGlobalBounds().contains(mousePos)) {
+                        std::cout << "Mouse Exit\n";
                         return;
-                    }
-                    if (menuText1.getGlobalBounds().contains(mousePos))
-                    {
-                        // If "Start" is clicked, open a new window (e.g., showMap)
-                        std::cout << "Bazinga";
-                    }
-                    if (menuText2.getGlobalBounds().contains(mousePos))
-                    {
-                        // If "Start" is clicked, open a new window (e.g., showMap)
-                        showSettings(window);
-                    }
-                    if (menuText3.getGlobalBounds().contains(mousePos))
-                    {
-                        // If "Start" is clicked, open a new window (e.g., showMap)
-                        showCredits(window);
-                    }
-                    if (menuText4.getGlobalBounds().contains(mousePos))
-                    {
-                        // If "Start" is clicked, open a new window (e.g., showMap)
-                        std::cout << "Exit";
                     }
                 }
             }
         }
 
         // Set highlighted text based on selected option
-        switch (selectedOption)
-        {
+        switch (selectedOption) {
         case 0:
             highlightedOption.setString(menuText0.getString());
             highlightedOption.setPosition(menuText0.getPosition());
@@ -214,19 +187,5 @@ void showMenu(sf::RenderWindow &window)
         window.draw(highlightedOption);
 
         window.display();
-    }
-    switch (goNext)
-    {
-    case 0:
-        break;
-    case 1:
-        break;
-    case 2:
-        break;
-    case 3:
-        break;
-    case 4:
-    default:
-        break;
     }
 }
