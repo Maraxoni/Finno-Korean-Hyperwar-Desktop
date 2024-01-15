@@ -1,26 +1,31 @@
 #include <bits/stdc++.h>
 #include <SFML/Graphics.hpp>
+#include <thread>
+#include <mutex>
+#include "Functions.h"
+#include "../Classes/Settings.h"
 #include "GameView.h"
 #include "Game.h"
-#include "Functions.h"
 #include "MenuView.h"
-#include "../Classes/Settings.cpp"
-#include <thread>
+
+
 
 void showSettings(sf::RenderWindow& window) {
     std::cout << "SettingsFunction";
 }
+
 void showCredits(sf::RenderWindow& window) {
     std::cout << "CreditsFunction";
 }
+
 void showSave(sf::RenderWindow& window) {
     std::cout << "SaveFunction";
 }
+
 void showLoad(sf::RenderWindow& window) {
     std::cout << "LoadFunction";
 }
 
-std::mutex mtx;
 
 void showClock(sf::RenderWindow& window) {
     std::filesystem::path currentPath = std::filesystem::path(__FILE__).parent_path().parent_path();
@@ -33,6 +38,8 @@ void showClock(sf::RenderWindow& window) {
     sf::Text timeElapsed("Time Elapsed: ", font_arial, 30);
     timeElapsed.setOutlineThickness(2);
     timeElapsed.setPosition(700, 50);
+
+    std::mutex mtx;
 
     int time_elapsed = 0;
 

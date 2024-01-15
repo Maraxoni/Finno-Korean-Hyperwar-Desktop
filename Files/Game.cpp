@@ -1,14 +1,16 @@
+#include <bits/stdc++.h>
 #include <nlohmann/json.hpp>
 #include <thread>
 #include <mutex>
-#include "../Classes/Country.cpp"
-#include "../Classes/Settings.cpp"
-
-std::mutex mtx;
+#include "Game.h"
+#include "../Classes/Country.h"
+#include "../Classes/Settings.h"
 
 void game(Country& PlayerCountry, Country& EnemyCountry) {
 	extern Settings globalSettings;
 
+	std::mutex mtx;
+	
 	int id = 4;
 	int game_month = 1;
 	int game_year = 2137;

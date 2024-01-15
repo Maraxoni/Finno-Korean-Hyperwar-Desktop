@@ -5,7 +5,7 @@
 #include "MenuView.h"
 #include "GameView.h"
 #include "Functions.h"
-#include "../Classes/Settings.cpp"
+#include "../Classes/Settings.h"
 
 void showMenu(sf::RenderWindow& window) {
     extern Settings globalSettings;
@@ -91,13 +91,13 @@ void showMenu(sf::RenderWindow& window) {
                         showMap(window);
                         break;
                     case 1:
-                        std::cout << "Enter Load Game\n";
+                        showLoad(window);
                         break;
                     case 2:
-                        std::cout << "Enter Options\n";
+                        showSettings(window);
                         break;
                     case 3:
-                        std::cout << "Enter Credits\n";
+                        showCredits(window);
                         break;
                     case 4:
                         std::cout << "Enter Exit\n";

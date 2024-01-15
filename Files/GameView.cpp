@@ -1,10 +1,11 @@
 #include <bits/stdc++.h>
 #include <SFML/Graphics.hpp>
-#include "GameView.h"
-#include "Game.h"
-#include "Functions.h"
 #include "MenuView.h"
-#include "../Classes/Settings.cpp"
+#include "GameView.h"
+#include "Functions.h"
+#include "Game.h"
+#include "../Classes/Settings.h"
+#include "../Classes/Country.h"
 #include <thread>
 
 void showMap(sf::RenderWindow& window) {
@@ -324,14 +325,17 @@ bool showGameMenu(sf::RenderWindow& window) {
                     if (gameMenuText1.getGlobalBounds().contains(mousePos)) {
                         // If "Start" is clicked, open a new window (e.g., showMap)
                         std::cout << "Mouse Save\n";
+                        showSave(window);
                     }
                     if (gameMenuText2.getGlobalBounds().contains(mousePos)) {
                         // If "Start" is clicked, open a new window (e.g., showMap)
                         std::cout << "Mouse Load\n";
+                        showLoad(window);
                     }
                     if (gameMenuText3.getGlobalBounds().contains(mousePos)) {
                         // If "Start" is clicked, open a new window (e.g., showMap)
                         std::cout << "Mouse Settings\n";
+                        showSettings(window);
                     }
                     if (gameMenuText4.getGlobalBounds().contains(mousePos)) {
                         // If "Start" is clicked, open a new window (e.g., showMap)

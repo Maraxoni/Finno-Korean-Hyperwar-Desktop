@@ -1,52 +1,45 @@
 #include "City.h"
-class City {
-public:
-	City() = default;
-private:
-	bool is_destroyed = false;
-	bool is_upgraded = false;
-	int farms = 2;
-	int mines = 1;
-	int reactors = 1;
-public:
-    bool getIsDestroyed() const {
-        return is_destroyed;
-    }
 
-    void setIsDestroyed(bool value) {
-        is_destroyed = value;
-    }
+City::City() : is_destroyed(false), is_upgraded(false), farms(2), mines(1), reactors(1) {
+    // Constructor implementation, if needed
+}
 
-    bool getIsUpgraded() const {
-        return is_upgraded;
-    }
+bool City::getIsDestroyed() const {
+    return is_destroyed;
+}
 
-    void setIsUpgraded(bool value) {
-        is_upgraded = value;
-    }
+void City::setIsDestroyed(bool value) {
+    is_destroyed = value;
+}
 
-    int getFarms() const {
-        return farms;
-    }
+bool City::getIsUpgraded() const {
+    return is_upgraded;
+}
 
-    void setFarms(int value) {
-        farms = value;
-    }
+void City::setIsUpgraded(bool value) {
+    is_upgraded = value;
+}
 
-    int getMines() const {
-        return mines;
-    }
+int City::getFarms() const {
+    return farms;
+}
 
-    void setMines(int value) {
-        mines = value;
-    }
+void City::setFarms(int value) {
+    farms = value;
+}
 
-    int getReactors() const {
-        return reactors;
-    }
+int City::getMines() const {
+    return mines;
+}
 
-    void setReactors(int value) {
-        reactors = value;
-    }
-};
+void City::setMines(int value) {
+    mines = value;
+}
 
+int City::getReactors() const {
+    return reactors;
+}
+
+void City::setReactors(int value) {
+    reactors = value;
+}

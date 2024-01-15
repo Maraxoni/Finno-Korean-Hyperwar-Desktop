@@ -1,7 +1,8 @@
 #include <bits/stdc++.h>
 #include <SFML/Graphics.hpp>
 #include "Files/MenuView.h"
-#include "Classes/Settings.cpp"
+#include "Files/Functions.h"
+#include "Classes/Settings.h"
 
 Settings globalSettings;
 
