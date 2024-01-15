@@ -5,8 +5,10 @@
 #include "MenuView.h"
 #include "GameView.h"
 #include "Functions.h"
+#include "../Classes/Settings.cpp"
 
 void showMenu(sf::RenderWindow& window) {
+    extern Settings globalSettings;
     // Path
     std::filesystem::path currentPath = std::filesystem::path(__FILE__).parent_path().parent_path();
     std::cout << currentPath << "\n";
@@ -81,7 +83,7 @@ void showMenu(sf::RenderWindow& window) {
                 else if (event.key.code == sf::Keyboard::Down) {
                     selectedOption = (selectedOption + 1) % 5;
                 }
-                else if (event.key.code == sf::Keyboard::Enter) {
+                else if (event.key.code == globalSettings.getKeyConfirm()) {
                     // If Enter key is pressed, perform the action associated with the selected option
                     switch (selectedOption) {
                     case 0:

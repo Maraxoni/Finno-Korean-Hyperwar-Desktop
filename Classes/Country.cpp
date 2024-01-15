@@ -1,9 +1,8 @@
 #include <fstream>
 #include <iostream>
 #include <string>
-#include <curses.h>
 #include "Country.h"
-#include "MainFunctions.h"
+#include "../Files/Functions.h"
 #include "City.cpp"
 
 class Country {
@@ -101,31 +100,31 @@ public:
         return sum;
     }
 
-	void showCity(WINDOW* currentWindow, int idCity, int idY, int idX, std::string nameC) {
-        std::ifstream cityFile(".\\Resources\\City.txt");
-        std::ifstream cityBuilt1File(".\\Resources\\City_Built_1.txt");
-        std::ifstream cityBuilt2File(".\\Resources\\City_Built_2.txt");
-        std::ifstream cityDestroyedFile(".\\Resources\\City_Destroyed.txt");
+	// void showCity(WINDOW* currentWindow, int idCity, int idY, int idX, std::string nameC) {
+    //     std::ifstream cityFile(".\\Resources\\City.txt");
+    //     std::ifstream cityBuilt1File(".\\Resources\\City_Built_1.txt");
+    //     std::ifstream cityBuilt2File(".\\Resources\\City_Built_2.txt");
+    //     std::ifstream cityDestroyedFile(".\\Resources\\City_Destroyed.txt");
 
-        if (cities[idCity].getIsDestroyed()) {
-            printImageHere(currentWindow, cityDestroyedFile, idY, idX);
-        }
-        else if (cities[idCity].getIsUpgraded()) {
-            printImageHere(currentWindow, cityBuilt1File, idY, idX);
-            napms(20);
-            printImageHere(currentWindow, cityBuilt2File, idY, idX);
-            napms(20);
-        }
-        else {
-            printImageHere(currentWindow, cityFile, idY, idX);
-        }
-        mvwprintw(currentWindow, idY, idX+2, nameC.c_str());
-        //if (1) { mvwprintw(currentWindow, idY+1, idX+2, "Upgrading %d/5", 1); }
-        cityFile.close();
-        cityBuilt1File.close();
-        cityBuilt2File.close();
-        cityDestroyedFile.close();
-	}
+    //     if (cities[idCity].getIsDestroyed()) {
+    //         // printImageHere(currentWindow, cityDestroyedFile, idY, idX);
+    //     }
+    //     else if (cities[idCity].getIsUpgraded()) {
+    //         // printImageHere(currentWindow, cityBuilt1File, idY, idX);
+    //         // napms(20);
+    //         // printImageHere(currentWindow, cityBuilt2File, idY, idX);
+    //         // napms(20);
+    //     }
+    //     else {
+    //         // printImageHere(currentWindow, cityFile, idY, idX);
+    //     }
+    //     // mvwprintw(currentWindow, idY, idX+2, nameC.c_str());
+    //     //if (1) { mvwprintw(currentWindow, idY+1, idX+2, "Upgrading %d/5", 1); }
+    //     cityFile.close();
+    //     cityBuilt1File.close();
+    //     cityBuilt2File.close();
+    //     cityDestroyedFile.close();
+	// }
 	void showUpgradingCity() {
 
 
