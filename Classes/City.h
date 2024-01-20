@@ -1,6 +1,12 @@
 #pragma once
 
 class City {
+private:
+    bool is_destroyed;
+    bool is_upgraded;
+    int farms;
+    int mines;
+    int reactors;
 public:
     City(); // Constructor
 
@@ -18,11 +24,4 @@ public:
 
     int getReactors() const;
     void setReactors(int value);
-
-private:
-    bool is_destroyed;
-    bool is_upgraded;
-    int farms;
-    int mines;
-    int reactors;
 };

@@ -67,7 +67,7 @@ void showMenu(sf::RenderWindow& window) {
 
     std::cout << "MenuFunction\n";
 
-    int selectedOption = 0;
+    int selected_option = 0;
 
     while (window.isOpen()) {
         sf::Event event;
@@ -78,14 +78,14 @@ void showMenu(sf::RenderWindow& window) {
             // Handle key presses for menu navigation
             if (event.type == sf::Event::KeyPressed) {
                 if (event.key.code == sf::Keyboard::Up) {
-                    selectedOption = (selectedOption - 1 + 5) % 5;
+                    selected_option = (selected_option - 1 + 5) % 5;
                 }
                 else if (event.key.code == sf::Keyboard::Down) {
-                    selectedOption = (selectedOption + 1) % 5;
+                    selected_option = (selected_option + 1) % 5;
                 }
                 else if (event.key.code == globalSettings.getKeyConfirm()) {
                     // If Enter key is pressed, perform the action associated with the selected option
-                    switch (selectedOption) {
+                    switch (selected_option) {
                     case 0:
                         std::cout << "Enter New Game\n";
                         showMap(window);
@@ -111,19 +111,19 @@ void showMenu(sf::RenderWindow& window) {
             if (event.type == sf::Event::MouseMoved) {
                 sf::Vector2f mousePos = window.mapPixelToCoords(sf::Mouse::getPosition(window));
                 if (menuText0.getGlobalBounds().contains(mousePos)) {
-                    selectedOption = 0;
+                    selected_option = 0;
                 }
                 else if (menuText1.getGlobalBounds().contains(mousePos)) {
-                    selectedOption = 1;
+                    selected_option = 1;
                 }
                 else if (menuText2.getGlobalBounds().contains(mousePos)) {
-                    selectedOption = 2;
+                    selected_option = 2;
                 }
                 else if (menuText3.getGlobalBounds().contains(mousePos)) {
-                    selectedOption = 3;
+                    selected_option = 3;
                 }
                 else if (menuText4.getGlobalBounds().contains(mousePos)) {
-                    selectedOption = 4;
+                    selected_option = 4;
                 }
             }
 
@@ -153,7 +153,7 @@ void showMenu(sf::RenderWindow& window) {
         }
 
         // Set highlighted text based on selected option
-        switch (selectedOption) {
+        switch (selected_option) {
         case 0:
             highlightedOption.setString(menuText0.getString());
             highlightedOption.setPosition(menuText0.getPosition());

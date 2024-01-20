@@ -15,50 +15,53 @@ void showMap(sf::RenderWindow& window) {
     Country Korea;
 
     Country* PlayerCountry = nullptr;
-	Country* EnemyCountry = nullptr;
+    Country* EnemyCountry = nullptr;
 
     if (globalSettings.getChosenCountry() == "Finland") {
-		PlayerCountry = &Finland;
-		EnemyCountry = &Korea;
-	}
-	else if (globalSettings.getChosenCountry() == "Korea") {
-		PlayerCountry = &Korea;
-		EnemyCountry = &Finland;
-	}
+        PlayerCountry = &Finland;
+        EnemyCountry = &Korea;
+    }
+    else if (globalSettings.getChosenCountry() == "Korea") {
+        PlayerCountry = &Korea;
+        EnemyCountry = &Finland;
+    }
 
     if (globalSettings.getDifficulty() == 1) {
-		EnemyCountry->setFoodStockpile(0);
-		EnemyCountry->setMetalStockpile(0);
-		EnemyCountry->setUraniumStockpile(0);
-	}
-	else if (globalSettings.getDifficulty() == 2) {
-		EnemyCountry->setFoodStockpile(20);
-		EnemyCountry->setMetalStockpile(20);
-		EnemyCountry->setUraniumStockpile(20);
-	}
-	else if (globalSettings.getDifficulty() == 3) {
-		EnemyCountry->setFoodStockpile(20);
-		EnemyCountry->setMetalStockpile(20);
-		EnemyCountry->setUraniumStockpile(20);
-		EnemyCountry->setNukes(1);
-	}
+        EnemyCountry->setFoodStockpile(0);
+        EnemyCountry->setMetalStockpile(0);
+        EnemyCountry->setUraniumStockpile(0);
+    }
+    else if (globalSettings.getDifficulty() == 2) {
+        EnemyCountry->setFoodStockpile(20);
+        EnemyCountry->setMetalStockpile(20);
+        EnemyCountry->setUraniumStockpile(20);
+    }
+    else if (globalSettings.getDifficulty() == 3) {
+        EnemyCountry->setFoodStockpile(20);
+        EnemyCountry->setMetalStockpile(20);
+        EnemyCountry->setUraniumStockpile(20);
+        EnemyCountry->setNukes(1);
+    }
 
     std::cout << "GameFunction\n";
     std::cout << "Bazinga1\n";
-    std::thread gameViewThread(showGame, std::ref(window), std::ref(Finland), std::ref(Korea));
+
+    //std::thread gameViewThread(showGame, std::ref(window), std::ref(Finland), std::ref(Korea));
     std::thread gameLogicThread(game, std::ref(Finland), std::ref(Korea));
-    std::thread clockThread(showClock, std::ref(window));
+    //std::thread clockThread(showClock, std::ref(window));
     std::cout << "Bazinga2\n";
-    gameViewThread.join();
+    //gameViewThread.join();
+    //clockThread.join();
+    showGame(window, Finland, Korea);
     gameLogicThread.join();
-    clockThread.join();
     std::cout << "Bazinga3\n";
-    
+
 }
 
-void showGame(sf::RenderWindow& window, Country& PlayerCountry, Country& EnemyCountry){
+void showGame(sf::RenderWindow& window, Country& PlayerCountry, Country& EnemyCountry) {
+    extern Settings globalSettings;
     std::filesystem::path currentPath = std::filesystem::path(__FILE__).parent_path().parent_path();
-
+    std::mutex mtx;
     // Define font and text for menu options
     sf::Font font_arial;
     if (!font_arial.loadFromFile((currentPath / "Resources" / "arial.ttf").string())) {
@@ -82,17 +85,28 @@ void showGame(sf::RenderWindow& window, Country& PlayerCountry, Country& EnemyCo
     if (!finlandFlagTexture.loadFromFile((currentPath / "Resources" / "Flag_of_Finland.png").string())) {
         std::cerr << "Error loading Finland flag texture." << std::endl;
     }
-    sf::Sprite finlandFlagSprite(finlandFlagTexture);
-    finlandFlagSprite.setScale(150.f / finlandFlagTexture.getSize().x, 100.f / finlandFlagTexture.getSize().y);
-    finlandFlagSprite.setPosition(2, 2);
 
     //Flag - Korea
     sf::Texture koreaFlagTexture;
     if (!koreaFlagTexture.loadFromFile((currentPath / "Resources" / "Flag_of_South_Korea.png").string())) {
         std::cerr << "Error loading Korea flag texture." << std::endl;
     }
-    sf::Sprite koreaFlagSprite(koreaFlagTexture);
-    koreaFlagSprite.setScale(50.f / koreaFlagTexture.getSize().x, 50.f / koreaFlagTexture.getSize().y);
+    sf::Sprite flagSprite(finlandFlagTexture);
+    sf::Text countryName("Proto-Finnic Khaganate", font_arial, 20);
+
+    if (globalSettings.getChosenCountry() == "Finland") {
+        flagSprite.setTexture(finlandFlagTexture);
+        flagSprite.setScale(150.f / finlandFlagTexture.getSize().x, 100.f / finlandFlagTexture.getSize().y);
+        countryName.setString("Proto-Finnic Khaganate");
+    }
+    else {
+        flagSprite.setTexture(koreaFlagTexture);
+        flagSprite.setScale(150.f / koreaFlagTexture.getSize().x, 100.f / koreaFlagTexture.getSize().y);
+        countryName.setString("Great Hwan Empire");
+    }
+    flagSprite.setPosition(2, 2);
+    countryName.setOutlineThickness(2);
+    countryName.setPosition(348, 25 / 2);
 
     //Icon - Grain
     sf::Texture grainIconTexture;
@@ -100,8 +114,8 @@ void showGame(sf::RenderWindow& window, Country& PlayerCountry, Country& EnemyCo
         std::cerr << "Error loading grain icon texture." << std::endl;
     }
     sf::Sprite grainIconSprite(grainIconTexture);
-    grainIconSprite.setScale(50.f / grainIconTexture.getSize().x, 50.f / grainIconTexture.getSize().y);
-    grainIconSprite.setPosition(160, 75);
+    grainIconSprite.setScale(25.f / grainIconTexture.getSize().x, 25.f / grainIconTexture.getSize().y);
+    grainIconSprite.setPosition(210, 50 + (25 / 2));
 
     //Icon - Metal
     sf::Texture metalIconTexture;
@@ -109,8 +123,8 @@ void showGame(sf::RenderWindow& window, Country& PlayerCountry, Country& EnemyCo
         std::cerr << "Error loading metal icon texture." << std::endl;
     }
     sf::Sprite metalIconSprite(metalIconTexture);
-    metalIconSprite.setScale(50.f / metalIconTexture.getSize().x, 50.f / metalIconTexture.getSize().y);
-    grainIconSprite.setPosition(200, 75);
+    metalIconSprite.setScale(25.f / metalIconTexture.getSize().x, 25.f / metalIconTexture.getSize().y);
+    metalIconSprite.setPosition(293, 50 + (25 / 2));
 
     //Icon - Uranium
     sf::Texture uraniumIconTexture;
@@ -118,36 +132,101 @@ void showGame(sf::RenderWindow& window, Country& PlayerCountry, Country& EnemyCo
         std::cerr << "Error loading uranium icon texture." << std::endl;
     }
     sf::Sprite uraniumIconSprite(uraniumIconTexture);
-    uraniumIconSprite.setScale(50.f / uraniumIconTexture.getSize().x, 50.f / uraniumIconTexture.getSize().y);
-    grainIconSprite.setPosition(300, 75);
+    uraniumIconSprite.setScale(25.f / uraniumIconTexture.getSize().x, 25.f / uraniumIconTexture.getSize().y);
+    uraniumIconSprite.setPosition(376, 50 + (25 / 2));
+
+    sf::Texture cityIconTexture;
+    if (!cityIconTexture.loadFromFile((currentPath / "Resources" / "icon_city.png").string())) {
+        std::cerr << "Error loading city icon texture." << std::endl;
+    }
+
+    sf::Texture cityDestroyedIconTexture;
+    if (!cityDestroyedIconTexture.loadFromFile((currentPath / "Resources" / "icon_city_destroyed.png").string())) {
+        std::cerr << "Error loading city_destroyed icon texture." << std::endl;
+    }
+
+    sf::Texture cityUpgradingIconTexture;
+    if (!cityDestroyedIconTexture.loadFromFile((currentPath / "Resources" / "icon_city_upgrading.png").string())) {
+        std::cerr << "Error loading city_upgrading icon texture." << std::endl;
+    }
+
+    // Create sprite tables for each "tab"
+    sf::Sprite cityFinlandIconSprites[5];
+    sf::Sprite cityKoreaIconSprites[5];
+
+    // Initialize sprites in the first "tab" (cityFinland)
+    for (int i = 0; i < 5; ++i) {
+        cityFinlandIconSprites[i].setTexture(cityIconTexture);
+        cityFinlandIconSprites[i].setScale(15.f / cityIconTexture.getSize().x, 15.f / cityIconTexture.getSize().y);
+    }
+
+    // Initialize sprites in the second "tab" (cityKorea)
+    for (int i = 0; i < 5; ++i) {
+        cityKoreaIconSprites[i].setTexture(cityIconTexture);
+        cityKoreaIconSprites[i].setScale(15.f / cityIconTexture.getSize().x, 15.f / cityIconTexture.getSize().y);
+    }
+
+    cityFinlandIconSprites[0].setPosition(180, 185);
+    cityFinlandIconSprites[1].setPosition(180, 215);
+    cityFinlandIconSprites[2].setPosition(100, 260);
+    cityFinlandIconSprites[3].setPosition(145, 290);
+    cityFinlandIconSprites[4].setPosition(180, 310);
+    cityKoreaIconSprites[0].setPosition(550, 340);
+    cityKoreaIconSprites[1].setPosition(520, 380);
+    cityKoreaIconSprites[2].setPosition(420, 380);
+    cityKoreaIconSprites[3].setPosition(440, 300);
+    cityKoreaIconSprites[4].setPosition(490, 220);
+
+    sf::Text cityFinlandNames[5];
+    sf::Text cityKoreaNames[5];
+
+    cityFinlandNames[0].setString("Helsinki");
+    cityFinlandNames[1].setString("Tallinn");
+    cityFinlandNames[2].setString("Den Haag");
+    cityFinlandNames[3].setString("Rome");
+    cityFinlandNames[4].setString("Istanbul");
+    cityKoreaNames[0].setString("Seul");
+    cityKoreaNames[1].setString("Nanjing");
+    cityKoreaNames[2].setString("Lhasa");
+    cityKoreaNames[3].setString("Tuuva");
+    cityKoreaNames[4].setString("Yakuck");
+
+    cityFinlandNames[0].setPosition(cityFinlandIconSprites[0].getPosition().x + cityFinlandIconSprites[0].getLocalBounds().width / 2, cityFinlandIconSprites[0].getPosition().y + cityFinlandIconSprites[0].getLocalBounds().height);
+    cityFinlandNames[1].setPosition(100, 200);
+    cityFinlandNames[2].setPosition(100, 200);
+    cityFinlandNames[3].setPosition(100, 200);
+    cityFinlandNames[4].setPosition(100, 200);
+    cityKoreaNames[0].setPosition(100, 200);
+    cityKoreaNames[1].setPosition(100, 200);
+    cityKoreaNames[2].setPosition(100, 200);
+    cityKoreaNames[3].setPosition(100, 200);
+    cityKoreaNames[4].setPosition(100, 200);
 
     //Text
     sf::Text topBarText0("Food", font_arial, 20);
-    sf::Text topBarText1("Metal", font_arial, 20);
-    sf::Text topBarText2("Uranium", font_arial, 20);
-    sf::Text topBarText3("Nukes", font_arial, 20);
-    sf::Text topBarText4("Cities", font_arial, 20);
-    //sf::Text topBarText5("Exit Game", font_arial, 20);
     topBarText0.setOutlineThickness(2);
+    topBarText0.setPosition(255, (75 + 50) / 2);
+    sf::Text topBarText1("Metal", font_arial, 20);
     topBarText1.setOutlineThickness(2);
+    topBarText1.setPosition(348, (75 + 50) / 2);
+    sf::Text topBarText2("Uranium", font_arial, 20);
     topBarText2.setOutlineThickness(2);
+    topBarText2.setPosition(431, (75 + 50) / 2);
+    sf::Text topBarText3("Nukes", font_arial, 20);
     topBarText3.setOutlineThickness(2);
+    topBarText3.setPosition(550, (75 + 50) / 2);
+    sf::Text topBarText4("Cities", font_arial, 20);
     topBarText4.setOutlineThickness(2);
-    //topBarText5.setOutlineThickness(2);
+    topBarText4.setPosition(600, (75 + 50) / 2);
+
+
 
     // Set the color of the rectangle
     sf::Color colorGray(128, 128, 128);
 
-    //Rectangle
-    // sf::RectangleShape topRectangle(sf::Vector2f(800, 100)); // Set the size of the rectangle
-    // topRectangle.setPosition(0, 0);
-    // topRectangle.setFillColor(colorGray);
-    // topRectangle.setOutlineThickness(2);
-    // topRectangle.setOutlineColor(sf::Color::Black);
     // Top
     sf::RectangleShape topFlagRectangle(sf::Vector2f(150, 100)); // Set the size of the rectangle
     topFlagRectangle.setPosition(2, 2);
-    //topFlagRectangle.setFillColor(colorGray);
     topFlagRectangle.setOutlineThickness(2);
     topFlagRectangle.setOutlineColor(sf::Color::Black);
 
@@ -195,8 +274,22 @@ void showGame(sf::RenderWindow& window, Country& PlayerCountry, Country& EnemyCo
     bottomTooltipRectangle.setOutlineColor(sf::Color::Black);
 
     std::cout << "GameViewFunction\n";
-
+    int refresh_variable = 1;
+    int stockpile_status_food = 0;
+    int stockpile_status_metal = 0;
+    int stockpile_status_uranium = 0;
+    int selected_city = 0;
+    int selected_menu = 0;
+    int selected_tab = 0;
     while (window.isOpen()) {
+
+        if ((stockpile_status_food != PlayerCountry.getMetalStockpile()) || (stockpile_status_metal != PlayerCountry.getMetalStockpile()) || (stockpile_status_uranium != PlayerCountry.getMetalStockpile())) {
+            refresh_variable = 1;
+        }
+        stockpile_status_food = PlayerCountry.getMetalStockpile();
+        stockpile_status_metal = PlayerCountry.getMetalStockpile();
+        stockpile_status_uranium = PlayerCountry.getMetalStockpile();
+
         sf::Event event;
         while (window.pollEvent(event)) {
             if (event.type == sf::Event::Closed)
@@ -204,10 +297,38 @@ void showGame(sf::RenderWindow& window, Country& PlayerCountry, Country& EnemyCo
 
             if (event.type == sf::Event::MouseMoved) {
                 sf::Vector2f mousePos = window.mapPixelToCoords(sf::Mouse::getPosition(window));
+                refresh_variable = 1;
+                for(int i = 0; i < PlayerCountry.getNumberOfCities(); i++){
+                    if(cityFinlandIconSprites[i].getGlobalBounds().contains(mousePos)){
+                        selected_city = i;
+                    }
+                    if(cityKoreaIconSprites[i].getGlobalBounds().contains(mousePos)){
+                        selected_city = i + 5;
+                    }
+                }
             }
 
             if (event.type == sf::Event::MouseButtonPressed) {
-
+                if (event.mouseButton.button == sf::Mouse::Left) {
+                    sf::Vector2f mousePos = window.mapPixelToCoords(sf::Mouse::getPosition(window));
+                    if (cityFinlandIconSprites[0].getGlobalBounds().contains(mousePos)) {
+                        std::cout << "cityFinland0IconSprite\n";
+                        showMap(window);
+                    }
+                    if (cityFinlandIconSprites[1].getGlobalBounds().contains(mousePos)) {
+                        std::cout << "cityFinland1IconSprite\n";
+                    }
+                    if (cityFinlandIconSprites[2].getGlobalBounds().contains(mousePos)) {
+                        std::cout << "cityFinland2IconSprite\n";
+                    }
+                    if (cityFinlandIconSprites[3].getGlobalBounds().contains(mousePos)) {
+                        std::cout << "cityFinland3IconSprite\n";
+                    }
+                    if (cityFinlandIconSprites[4].getGlobalBounds().contains(mousePos)) {
+                        std::cout << "cityFinland4IconSprite\n";
+                        return;
+                    }
+                }
             }
 
             if (event.type == sf::Event::KeyPressed) {
@@ -216,27 +337,119 @@ void showGame(sf::RenderWindow& window, Country& PlayerCountry, Country& EnemyCo
                         return;
                     }
                 }
+                else if (event.key.code == sf::Keyboard::Up) {
+                    selected_tab = 0;
+                }
+                else if (event.key.code == sf::Keyboard::Down) {
+                    selected_tab = 1;
+                }
+                else if (event.key.code == sf::Keyboard::Right) {
+                    selected_city = (selected_city + 1) % 10;
+                }
+                else if (event.key.code == sf::Keyboard::Left) {
+                    selected_city = (selected_city - 1 + 10) % 10;
+                }
+                else if (event.key.code == globalSettings.getKeyConfirm()) {
+                    // If Enter key is pressed, perform the action associated with the selected option
+                    switch (selected_city) {
+                    case 0:
+                        std::cout << "Enter New Game\n";
+                        showMap(window);
+                        break;
+                    case 1:
+                        showLoad(window);
+                        break;
+                    case 2:
+                        showSettings(window);
+                        break;
+                    case 3:
+                        showCredits(window);
+                        break;
+                    case 4:
+                        std::cout << "Enter Exit\n";
+                        return;
+                        break;
+                    }
+                }
             }
         }
-        window.clear();
-        window.draw(mapSprite);
-        //window.draw(topRectangle);
-        window.draw(topFlagRectangle);
-        window.draw(topCountryRectangle);
-        window.draw(topResourcesRectangle);
-        window.draw(topClockRectangle);
 
-        window.draw(bottomLogRectangle);
-        window.draw(bottomChoiceRectangle);
-        window.draw(bottomInfoRectangle);
-        window.draw(bottomTooltipRectangle);
+        if (refresh_variable) {
+            topBarText0.setString(std::to_string(PlayerCountry.getFoodStockpile()) + "+(" + std::to_string(PlayerCountry.getFoodIncome()) + ")");
+            topBarText1.setString(std::to_string(PlayerCountry.getMetalStockpile()) + "+(" + std::to_string(PlayerCountry.getMetalIncome()) + ")");
+            topBarText2.setString(std::to_string(PlayerCountry.getUraniumStockpile()) + "+(" + std::to_string(PlayerCountry.getUraniumIncome()) + ")");
+            topBarText3.setString("" + std::to_string(PlayerCountry.getFoodIncome()));
+            topBarText4.setString("" + std::to_string(PlayerCountry.getFoodIncome()));
+            window.clear();
+            window.draw(mapSprite);
+            window.draw(topFlagRectangle);
+            window.draw(topCountryRectangle);
+            window.draw(topResourcesRectangle);
+            window.draw(topClockRectangle);
+            window.draw(flagSprite);
+            window.draw(countryName);
+            window.draw(bottomLogRectangle);
+            window.draw(bottomChoiceRectangle);
+            window.draw(bottomInfoRectangle);
+            window.draw(bottomTooltipRectangle);
 
-        window.draw(finlandFlagSprite);
-        window.draw(grainIconSprite);
-        window.draw(metalIconSprite);
-        window.draw(uraniumIconSprite);
+            window.draw(grainIconSprite);
+            window.draw(topBarText0);
+            window.draw(metalIconSprite);
+            window.draw(topBarText1);
+            window.draw(uraniumIconSprite);
+            window.draw(topBarText2);
 
-        window.display();
+            window.draw(topBarText3);
+            window.draw(topBarText4);
+
+            for (int u = 0; u < PlayerCountry.getNumberOfCities(); u++) {
+                window.draw(cityFinlandIconSprites[u]);
+                window.draw(cityFinlandNames[u]);
+                window.draw(cityKoreaIconSprites[u]);
+                window.draw(cityKoreaNames[u]);
+            }
+
+            switch (selected_tab) {
+            case 0:
+                switch (selected_city) {
+                case 0:
+                    break;
+                case 1:
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    break;
+                case 6:
+                    break;
+                case 7:
+                    break;
+                case 8:
+                    break;
+                case 9:
+                    break;
+                default:
+                    break;
+                }
+                break;
+            case 1:
+                switch (selected_city) {
+
+                }
+                break;
+            default:
+                break;
+            }
+
+
+            window.display();
+        }
+        refresh_variable = 0;
     }
 }
 

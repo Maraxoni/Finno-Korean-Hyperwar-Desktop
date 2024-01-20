@@ -86,8 +86,3 @@ int Country::getNumberOfCities() {
     }
     return sum;
 }
-
-void Country::showUpgradingCity() {
-    // Implement the function as needed
-    // For example, you can add code to show the upgrading city.
-}

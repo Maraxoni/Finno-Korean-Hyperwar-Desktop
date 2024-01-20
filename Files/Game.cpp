@@ -20,6 +20,7 @@ void game(Country& PlayerCountry, Country& EnemyCountry) {
 	while (1) {
 		if (game_month > 12) {
 			game_month = 1;
+			game_year++;
 		}
 
 
@@ -38,16 +39,18 @@ void game(Country& PlayerCountry, Country& EnemyCountry) {
 		}
 		if (EnemyCountry.getNukes() > 0) {
 			EnemyCountry.setNukes(EnemyCountry.getNukes() - 1);
-			PlayerCountry.cities[id].setIsDestroyed(true);
+			//PlayerCountry.cities[id].setIsDestroyed(true);
 			id = id - 1;
+		}
+		if(game_year == 2145){
+			break;
 		}
 
 		mtx.lock();
-		//mvwprintw(clockWin, 1, 3, "Month/Year: %d/%d BFK", game_month, game_year);
-		//wrefresh(clockWin);
+
 		mtx.unlock();
 
 		game_month++;
-		//napms(500*globalSettings.getSpeed());
+		std::this_thread::sleep_for(std::chrono::seconds(globalSettings.getSpeed()));
 	}
 }

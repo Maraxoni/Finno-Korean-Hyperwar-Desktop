@@ -42,7 +42,7 @@ void showClock(sf::RenderWindow& window) {
     std::mutex mtx;
 
     int time_elapsed = 0;
-
+    std::cout << "ClockFunction";
     while (1) {
         mtx.lock();
         timeElapsed.setString("Time Elapsed: " + std::to_string(time_elapsed));

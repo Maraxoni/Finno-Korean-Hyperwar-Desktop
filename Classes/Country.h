@@ -33,8 +33,5 @@ public:
     // Other
     int getNumberOfCities();
 
-    // Function to show a city (commented out for now)
-    // void showCity(WINDOW* currentWindow, int idCity, int idY, int idX, std::string nameC);
-
-    void showUpgradingCity();
+    void showCity();
 };
