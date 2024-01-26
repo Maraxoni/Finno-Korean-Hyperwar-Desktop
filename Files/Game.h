@@ -1,4 +1,4 @@
 #pragma once
 #include "../Classes/Country.h"
-
-void game(Country& PlayerCountry, Country& EnemyCountry);
+#include <SFML/Graphics.hpp>
+void game(sf::RenderWindow& window, Country& PlayerCountry, Country& EnemyCountry);

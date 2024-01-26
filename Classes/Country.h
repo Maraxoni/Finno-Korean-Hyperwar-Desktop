@@ -3,7 +3,7 @@
 class Country {
 private:
     int limit = 100;
-    int food_stockpile = 0;
+    int food_stockpile = 20;
     int metal_stockpile = 0;
     int uranium_stockpile = 0;
     int nukes = 0;

@@ -3,8 +3,10 @@
   "difficulty": 2,
   "keyConfirm": 58,
   "keyDown": 18,
+  "keyEscape": 36,
   "keyLeft": 0,
   "keyRight": 3,
+  "keyTab": 60,
   "keyUp": 22,
   "speed": 1
 }

@@ -67,7 +67,7 @@ void showMenu(sf::RenderWindow& window) {
 
     std::cout << "MenuFunction\n";
 
-    int selected_option = 0;
+    int selected_option = -1;
 
     while (window.isOpen()) {
         sf::Event event;
@@ -91,12 +91,15 @@ void showMenu(sf::RenderWindow& window) {
                         showMap(window);
                         break;
                     case 1:
+                        std::cout << "Enter Load\n";
                         showLoad(window);
                         break;
                     case 2:
+                        std::cout << "Enter Settings\n";
                         showSettings(window);
                         break;
                     case 3:
+                        std::cout << "Enter Credits\n";
                         showCredits(window);
                         break;
                     case 4:
@@ -137,12 +140,15 @@ void showMenu(sf::RenderWindow& window) {
                     }
                     if (menuText1.getGlobalBounds().contains(mousePos)) {
                         std::cout << "Mouse Load Game\n";
+                        showLoad(window);
                     }
                     if (menuText2.getGlobalBounds().contains(mousePos)) {
                         std::cout << "Mouse Options\n";
+                        showSettings(window);
                     }
                     if (menuText3.getGlobalBounds().contains(mousePos)) {
                         std::cout << "Mouse Credits\n";
+                        showCredits(window);
                     }
                     if (menuText4.getGlobalBounds().contains(mousePos)) {
                         std::cout << "Mouse Exit\n";

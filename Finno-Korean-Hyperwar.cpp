@@ -11,7 +11,7 @@ int main() {
     std::cout << "Game Init\n";
 
     sf::RenderWindow window(sf::VideoMode(800, 600), "FK-Hyperwar");
-
+    
     showMenu(window);
 
     return 0;

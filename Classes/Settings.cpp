@@ -9,8 +9,9 @@ const int MAX_DIFFICULTY = 3;
 const int MIN_DIFFICULTY = 1;
 
 Settings::Settings() {
+     saveToFile();
     loadFromFile();
-    saveToFile();
+   
 }
 
 void Settings::loadFromFile() {
@@ -24,6 +25,8 @@ void Settings::loadFromFile() {
         keyLeft = static_cast<sf::Keyboard::Key>(jsonSettings["keyLeft"]);
         keyRight = static_cast<sf::Keyboard::Key>(jsonSettings["keyRight"]);
         keyConfirm = static_cast<sf::Keyboard::Key>(jsonSettings["keyConfirm"]);
+        keyEscape = static_cast<sf::Keyboard::Key>(jsonSettings["keyEscape"]);
+        keyTab = static_cast<sf::Keyboard::Key>(jsonSettings["keyTab"]);
         chosenCountry = jsonSettings["chosenCountry"].get<std::string>();
         speed = jsonSettings["speed"];
         difficulty = jsonSettings["difficulty"];
@@ -44,6 +47,8 @@ void Settings::saveToFile() {
         jsonSettings["keyLeft"] = static_cast<int>(keyLeft);
         jsonSettings["keyRight"] = static_cast<int>(keyRight);
         jsonSettings["keyConfirm"] = static_cast<int>(keyConfirm);
+        jsonSettings["keyEscape"] = static_cast<int>(keyEscape);
+        jsonSettings["keyTab"] = static_cast<int>(keyTab);
         jsonSettings["chosenCountry"] = chosenCountry;
         jsonSettings["speed"] = speed;
         jsonSettings["difficulty"] = difficulty;
@@ -93,6 +98,22 @@ sf::Keyboard::Key Settings::getKeyConfirm() const {
 }
 
 void Settings::setKeyConfirm(sf::Keyboard::Key key) {
+    keyConfirm = key;
+}
+
+sf::Keyboard::Key Settings::getKeyEscape() const {
+    return keyConfirm;
+}
+
+void Settings::setKeyEscape(sf::Keyboard::Key key) {
+    keyConfirm = key;
+}
+
+sf::Keyboard::Key Settings::getKeyTab() const {
+    return keyConfirm;
+}
+
+void Settings::setKeyTab(sf::Keyboard::Key key) {
     keyConfirm = key;
 }
 

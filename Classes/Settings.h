@@ -8,6 +8,8 @@ private:
     sf::Keyboard::Key keyLeft = sf::Keyboard::A;
     sf::Keyboard::Key keyRight = sf::Keyboard::D;
     sf::Keyboard::Key keyConfirm = sf::Keyboard::Enter;
+    sf::Keyboard::Key keyEscape = sf::Keyboard::Escape;
+    sf::Keyboard::Key keyTab = sf::Keyboard::Tab;
     std::string chosenCountry = "Finland";
     int speed = 1;
     int difficulty = 2;
@@ -40,6 +42,12 @@ public:
 
     sf::Keyboard::Key getKeyConfirm() const;
     void setKeyConfirm(sf::Keyboard::Key key);
+
+    sf::Keyboard::Key getKeyEscape() const;
+    void setKeyEscape(sf::Keyboard::Key key);
+
+    sf::Keyboard::Key getKeyTab() const;
+    void setKeyTab(sf::Keyboard::Key key);
 
     std::string getChosenCountry() const;
     void setChosenCountry(const std::string& country);

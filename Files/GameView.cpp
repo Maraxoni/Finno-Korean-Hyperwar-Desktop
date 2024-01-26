@@ -47,7 +47,7 @@ void showMap(sf::RenderWindow& window) {
     std::cout << "Bazinga1\n";
 
     //std::thread gameViewThread(showGame, std::ref(window), std::ref(Finland), std::ref(Korea));
-    std::thread gameLogicThread(game, std::ref(Finland), std::ref(Korea));
+    std::thread gameLogicThread(game, std::ref(window), std::ref(Finland), std::ref(Korea));
     //std::thread clockThread(showClock, std::ref(window));
     std::cout << "Bazinga2\n";
     //gameViewThread.join();
@@ -119,6 +119,8 @@ void showGame(sf::RenderWindow& window, Country& PlayerCountry, Country& EnemyCo
     sf::Sprite grainMenuIconSprite(grainIconTexture);
     grainMenuIconSprite.setScale(40.f / grainIconTexture.getSize().x, 40.f / grainIconTexture.getSize().y);
     grainMenuIconSprite.setPosition(225, 500 + (40 / 2));
+    sf::Sprite grainLogIconSprite(grainIconTexture);
+    grainLogIconSprite.setScale(15.f / grainIconTexture.getSize().x, 15.f / grainIconTexture.getSize().y);
 
     //Icon - Metal
     sf::Texture metalIconTexture;
@@ -131,6 +133,8 @@ void showGame(sf::RenderWindow& window, Country& PlayerCountry, Country& EnemyCo
     sf::Sprite metalMenuIconSprite(metalIconTexture);
     metalMenuIconSprite.setScale(40.f / metalIconTexture.getSize().x, 40.f / metalIconTexture.getSize().y);
     metalMenuIconSprite.setPosition(375, 500 + (40 / 2));
+    sf::Sprite metalLogIconSprite(metalIconTexture);
+    metalLogIconSprite.setScale(15.f / metalIconTexture.getSize().x, 15.f / metalIconTexture.getSize().y);
 
     //Icon - Uranium
     sf::Texture uraniumIconTexture;
@@ -143,48 +147,220 @@ void showGame(sf::RenderWindow& window, Country& PlayerCountry, Country& EnemyCo
     sf::Sprite uraniumMenuIconSprite(uraniumIconTexture);
     uraniumMenuIconSprite.setScale(40.f / uraniumIconTexture.getSize().x, 40.f / uraniumIconTexture.getSize().y);
     uraniumMenuIconSprite.setPosition(525, 500 + (40 / 2));
+    sf::Sprite uraniumLogIconSprite(uraniumIconTexture);
+    uraniumLogIconSprite.setScale(15.f / uraniumIconTexture.getSize().x, 15.f / uraniumIconTexture.getSize().y);
+
+
+    //Nuke
+    sf::Texture nukeIconTexture;
+    if (!nukeIconTexture.loadFromFile((currentPath / "Resources" / "nuke_icon.png").string())) {
+        std::cerr << "Error loading nukeIcon texture." << std::endl;
+    }
+    sf::Sprite nukeIconSprite(nukeIconTexture);
+    nukeIconSprite.setScale(40.f / nukeIconTexture.getSize().x, 40.f / nukeIconTexture.getSize().y);
+    sf::Sprite nukeMenuIconSprite(nukeIconTexture);
+    nukeMenuIconSprite.setScale(25.f / nukeIconTexture.getSize().x, 25.f / nukeIconTexture.getSize().y);
+
+    //Nuke
+    sf::Texture cityBombedIconTexture;
+    if (!cityBombedIconTexture.loadFromFile((currentPath / "Resources" / "bomb_city.png").string())) {
+        std::cerr << "Error loading cityBombedIcon texture." << std::endl;
+    }
+    sf::Sprite cityBombedIconSprite(cityBombedIconTexture);
+    cityBombedIconSprite.setScale(40.f / cityBombedIconTexture.getSize().x, 40.f / cityBombedIconTexture.getSize().y);
+
+
+    //Nuke
+    sf::Texture nukeBuildIconTexture;
+    if (!nukeBuildIconTexture.loadFromFile((currentPath / "Resources" / "build_nuke_icon.png").string())) {
+        std::cerr << "Error loading nukeBuild texture." << std::endl;
+    }
+    sf::Sprite nukeBuildIconflagSprite(nukeBuildIconTexture);
+    nukeBuildIconflagSprite.setScale(40.f / nukeBuildIconTexture.getSize().x, 40.f / nukeBuildIconTexture.getSize().y);
+
+    nukeBuildIconflagSprite.setPosition(225, 500 + (40 / 2));
+    nukeIconSprite.setPosition(375, 500 + (40 / 2));
+    cityBombedIconSprite.setPosition(525, 500 + (40 / 2));
+
+    // Create sprite tables for each "tab"
+    sf::Sprite cityFinlandIconSprites[5];
+    sf::Sprite cityKoreaIconSprites[5];
+    sf::Sprite cityFinlandDestroyedIconSprites[5];
+    sf::Sprite cityKoreaDestroyedIconSprites[5];
+    sf::Sprite cityFinlandUpgradedIconSprites[5];
+    sf::Sprite cityKoreaUpgradedIconSprites[5];
+    sf::Sprite cityFinlandBombedIconSprites[5];
+    sf::Sprite cityKoreaBombedIconSprites[5];
 
     sf::Texture cityIconTexture;
     if (!cityIconTexture.loadFromFile((currentPath / "Resources" / "icon_city.png").string())) {
         std::cerr << "Error loading city icon texture." << std::endl;
     }
+    sf::Sprite citiesSprite(cityIconTexture);
+    citiesSprite.setScale(25.f / cityIconTexture.getSize().x, 25.f / cityIconTexture.getSize().y);
 
-    sf::Texture cityDestroyedIconTexture;
-    if (!cityDestroyedIconTexture.loadFromFile((currentPath / "Resources" / "icon_city_destroyed.png").string())) {
-        std::cerr << "Error loading city_destroyed icon texture." << std::endl;
-    }
+    citiesSprite.setPosition(610, 50 + (25 / 2));
+    nukeMenuIconSprite.setPosition(570, 50 + (25 / 2));
 
-    sf::Texture cityUpgradingIconTexture;
-    if (!cityDestroyedIconTexture.loadFromFile((currentPath / "Resources" / "icon_city_upgrading.png").string())) {
-        std::cerr << "Error loading city_upgrading icon texture." << std::endl;
-    }
-
-    // Create sprite tables for each "tab"
-    sf::Sprite cityFinlandIconSprites[5];
-    sf::Sprite cityKoreaIconSprites[5];
-
-    // Initialize sprites in the first "tab" (cityFinland)
+    //city
     for (int i = 0; i < 5; ++i) {
         cityFinlandIconSprites[i].setTexture(cityIconTexture);
         cityFinlandIconSprites[i].setScale(15.f / cityIconTexture.getSize().x, 15.f / cityIconTexture.getSize().y);
-    }
-
-    // Initialize sprites in the second "tab" (cityKorea)
-    for (int i = 0; i < 5; ++i) {
         cityKoreaIconSprites[i].setTexture(cityIconTexture);
         cityKoreaIconSprites[i].setScale(15.f / cityIconTexture.getSize().x, 15.f / cityIconTexture.getSize().y);
     }
 
+    //sample
+    int numFramesX = 0;
+    int numFramesY = 0;
+    int frameWidth = 0;
+    int frameHeight = 0;
+
+    //upg
+    sf::Texture cityUpgradingIconTexture;
+    if (!cityUpgradingIconTexture.loadFromFile((currentPath / "Resources" / "city_construction_sprite_pack.png").string())) {
+        std::cerr << "Error loading city_construction icon texture." << std::endl;
+    }
+    numFramesX = 4;
+    numFramesY = 1;
+    frameWidth = cityUpgradingIconTexture.getSize().x / numFramesX; // numFrames is the number of frames in the sprite sheet
+    frameHeight = cityUpgradingIconTexture.getSize().y / numFramesY;
+    std::vector<sf::IntRect> upgradingFrames;
+    for (int i = 0; i < numFramesX; ++i) {
+        upgradingFrames.push_back(sf::IntRect(i * frameWidth, 0, frameWidth, frameHeight));
+    }
+
+    for (int i = 0; i < 5; ++i) {
+        cityFinlandUpgradedIconSprites[i].setTexture(cityUpgradingIconTexture);
+        cityFinlandUpgradedIconSprites[i].setScale(15.f / frameWidth, 15.f / frameHeight);
+        cityKoreaUpgradedIconSprites[i].setTexture(cityUpgradingIconTexture);
+        cityKoreaUpgradedIconSprites[i].setScale(15.f / frameWidth, 15.f / frameHeight);
+    }
+
+    //des
+    sf::Texture cityDestroyedIconTexture;
+    if (!cityDestroyedIconTexture.loadFromFile((currentPath / "Resources" / "city_destroyed_sprite_pack.png").string())) {
+        std::cerr << "Error loading city_destroyed sprite pack texture." << std::endl;
+    }
+    numFramesX = 3;
+    numFramesY = 3;
+    frameWidth = cityDestroyedIconTexture.getSize().x / numFramesX; // numFrames is the number of frames in the sprite sheet
+    frameHeight = cityDestroyedIconTexture.getSize().y / numFramesY;
+    std::vector<sf::IntRect> destroyedFrames;
+    for (int i = 0; i < numFramesX; ++i) {
+        destroyedFrames.push_back(sf::IntRect(0, i * frameHeight, frameWidth, frameHeight));
+    }
+    for (int i = 0; i < 5; ++i) {
+        cityFinlandDestroyedIconSprites[i].setTexture(cityDestroyedIconTexture);
+        cityFinlandDestroyedIconSprites[i].setScale(15.f / frameWidth, 15.f / frameHeight);
+        cityKoreaDestroyedIconSprites[i].setTexture(cityDestroyedIconTexture);
+        cityKoreaDestroyedIconSprites[i].setScale(15.f / frameWidth, 15.f / frameHeight);
+    }
+
+    //exp
+    sf::Texture explosionTexture;
+    if (!explosionTexture.loadFromFile((currentPath / "Resources" / "explosion_sprite_pack.png").string())) {
+        std::cerr << "Error loading explosion sprite pack texture." << std::endl;
+    }
+    numFramesX = 5;
+    numFramesY = 3;
+    frameWidth = explosionTexture.getSize().x / numFramesX; // numFrames is the number of frames in the sprite sheet
+    frameHeight = explosionTexture.getSize().y / numFramesY;
+    std::vector<sf::IntRect> explosionFrames;
+    for (int i = 0; i < numFramesX; ++i) {
+        explosionFrames.push_back(sf::IntRect(i * frameWidth, 0, frameWidth, frameHeight));
+    }
+    for (int i = 0; i < 5; ++i) {
+        cityFinlandBombedIconSprites[i].setTexture(explosionTexture);
+        cityFinlandBombedIconSprites[i].setScale(15.f / frameWidth, 15.f / frameHeight);
+        cityKoreaBombedIconSprites[i].setTexture(explosionTexture);
+        cityKoreaBombedIconSprites[i].setScale(15.f / frameWidth, 15.f / frameHeight);
+    }
+
+    sf::Sprite soldierFSprites[3];
+    sf::Sprite soldierKSprites[3];
+
+    //soldier
+    sf::Texture soldierTexture;
+    if (!soldierTexture.loadFromFile((currentPath / "Resources" / "soldier_sprite_pack.png").string())) {
+        std::cerr << "Error loading soldier texture." << std::endl;
+    }
+    numFramesX = 8;
+    numFramesY = 6;
+    frameWidth = soldierTexture.getSize().x / numFramesX; // numFrames is the number of frames in the sprite sheet
+    frameHeight = soldierTexture.getSize().y / numFramesY;
+    std::vector<sf::IntRect> soldierFFrames;
+    std::vector<sf::IntRect> soldierKFrames;
+    for (int i = 0; i < numFramesY; ++i) {
+        soldierFFrames.push_back(sf::IntRect(6 * frameWidth, i * frameHeight, frameWidth, frameHeight));
+        soldierKFrames.push_back(sf::IntRect(2 * frameWidth, i * frameHeight, frameWidth, frameHeight));
+    }
+    for (int i = 0; i < 3; ++i) {
+        soldierFSprites[i].setTexture(soldierTexture);
+        soldierFSprites[i].setScale(15.f / frameWidth, 15.f / frameHeight);
+        soldierKSprites[i].setTexture(soldierTexture);
+        soldierKSprites[i].setScale(15.f / frameWidth, 15.f / frameHeight);
+    }
+
+    soldierFSprites[0].setPosition(330, 170);
+    soldierFSprites[1].setPosition(340, 220);
+    soldierFSprites[2].setPosition(330, 270);
+    soldierKSprites[0].setPosition(390, 190);
+    soldierKSprites[1].setPosition(400, 240);
+    soldierKSprites[2].setPosition(380, 290);
+
+    // Initialize sprites in the first "tab" (cityFinland)
+
+    // f0
     cityFinlandIconSprites[0].setPosition(180, 185);
+    cityFinlandDestroyedIconSprites[0].setPosition(180, 185);
+    cityFinlandUpgradedIconSprites[0].setPosition(180, 185);
+    cityFinlandBombedIconSprites[0].setPosition(180, 185);
+    // f1
     cityFinlandIconSprites[1].setPosition(180, 215);
+    cityFinlandDestroyedIconSprites[1].setPosition(180, 215);
+    cityFinlandUpgradedIconSprites[1].setPosition(180, 215);
+    cityFinlandBombedIconSprites[1].setPosition(180, 215);
+    // f2
     cityFinlandIconSprites[2].setPosition(100, 260);
+    cityFinlandDestroyedIconSprites[2].setPosition(100, 260);
+    cityFinlandUpgradedIconSprites[2].setPosition(100, 260);
+    cityFinlandBombedIconSprites[2].setPosition(100, 260);
+    // f3
     cityFinlandIconSprites[3].setPosition(145, 290);
+    cityFinlandDestroyedIconSprites[3].setPosition(145, 290);
+    cityFinlandUpgradedIconSprites[3].setPosition(145, 290);
+    cityFinlandBombedIconSprites[3].setPosition(145, 290);
+    // f4
     cityFinlandIconSprites[4].setPosition(180, 310);
+    cityFinlandDestroyedIconSprites[4].setPosition(180, 310);
+    cityFinlandUpgradedIconSprites[4].setPosition(180, 310);
+    cityFinlandBombedIconSprites[4].setPosition(180, 310);
+    // k0
     cityKoreaIconSprites[0].setPosition(550, 340);
+    cityKoreaDestroyedIconSprites[0].setPosition(550, 340);
+    cityKoreaUpgradedIconSprites[0].setPosition(550, 340);
+    cityKoreaBombedIconSprites[0].setPosition(550, 340);
+    // k1
     cityKoreaIconSprites[1].setPosition(520, 380);
+    cityKoreaDestroyedIconSprites[1].setPosition(520, 380);
+    cityKoreaUpgradedIconSprites[1].setPosition(520, 380);
+    cityKoreaBombedIconSprites[1].setPosition(520, 380);
+    // k2
     cityKoreaIconSprites[2].setPosition(420, 380);
+    cityKoreaDestroyedIconSprites[2].setPosition(420, 380);
+    cityKoreaUpgradedIconSprites[2].setPosition(420, 380);
+    cityKoreaBombedIconSprites[2].setPosition(420, 380);
+    // k3
     cityKoreaIconSprites[3].setPosition(440, 300);
+    cityKoreaDestroyedIconSprites[3].setPosition(440, 300);
+    cityKoreaUpgradedIconSprites[3].setPosition(440, 300);
+    cityKoreaBombedIconSprites[3].setPosition(440, 300);
+    // k4
     cityKoreaIconSprites[4].setPosition(490, 220);
+    cityKoreaDestroyedIconSprites[4].setPosition(490, 220);
+    cityKoreaUpgradedIconSprites[4].setPosition(490, 220);
+    cityKoreaBombedIconSprites[4].setPosition(490, 220);
 
     sf::Text cityFinlandNames[5];
     sf::Text cityKoreaNames[5];
@@ -223,10 +399,10 @@ void showGame(sf::RenderWindow& window, Country& PlayerCountry, Country& EnemyCo
     topBarText2.setPosition(480, (80 + 50) / 2);
     sf::Text topBarText3("Nukes", font_arial, 20);
     topBarText3.setOutlineThickness(2);
-    topBarText3.setPosition(580, (75 + 50) / 2);
+    topBarText3.setPosition(598, (75 + 50) / 2);
     sf::Text topBarText4("Cities", font_arial, 20);
     topBarText4.setOutlineThickness(2);
-    topBarText4.setPosition(610, (75 + 50) / 2);
+    topBarText4.setPosition(636, (75 + 50) / 2);
     sf::Text logBarText0("0", font_arial, 20);
     logBarText0.setOutlineThickness(2);
     logBarText0.setPosition(30, 500);
@@ -294,6 +470,14 @@ void showGame(sf::RenderWindow& window, Country& PlayerCountry, Country& EnemyCo
     bottomTooltipRectangle.setOutlineThickness(2);
     bottomTooltipRectangle.setOutlineColor(sf::Color::Black);
 
+    int currentSoldierFrame = 0;
+    int currentFrameDestroyedCity = 0;
+    int currentFrameUpgradedCity = 0;
+    int currentFrameBombedCity = 0;
+    sf::Clock cityAnimationClock;
+    sf::Clock soldierAnimationClock;
+    float frameDuration = 0.4f;
+
     std::cout << "GameViewFunction\n";
     int refresh_variable = 1;
     int stockpile_status_food = 0;
@@ -303,8 +487,37 @@ void showGame(sf::RenderWindow& window, Country& PlayerCountry, Country& EnemyCo
     int selected_menu = 0;
     int selected_icon = -1;
     int selected_tab = 0;
-    while (window.isOpen()) {
 
+    sf::Text logInfoText0("", font_arial, 16);
+    logInfoText0.setOutlineThickness(2);
+    logInfoText0.setPosition(660, 500);
+    sf::Text logCostText0("", font_arial, 16);
+    logCostText0.setOutlineThickness(2);
+    logCostText0.setPosition(680, 518);
+    sf::Text logCostText1("", font_arial, 16);
+    logCostText1.setOutlineThickness(2);
+    logCostText1.setPosition(680, 534);
+    sf::Text logCostText2("", font_arial, 16);
+    logCostText2.setOutlineThickness(2);
+    logCostText2.setPosition(680, 550);
+
+    grainLogIconSprite.setPosition(660, 522);
+    metalLogIconSprite.setPosition(660, 538);
+    uraniumLogIconSprite.setPosition(660, 554);
+
+    int log_cost_grain = 0;
+    int log_cost_metal = 0;
+    int log_cost_uranium = 0;
+
+    outlineCityShape.setFillColor(colorGray);
+    outlineIconShape.setFillColor(colorGray);
+    outlineShape.setFillColor(colorGray);
+
+    int cityBombedTimer[10];
+    int cityUpgradedTimer[10];
+
+    while (window.isOpen()) {
+        refresh_variable = 1;
         sf::Color originalColor = sf::Color::Black;
         sf::Color highlightColor = sf::Color(255, 255, 0); // Yellow highlight color
         sf::Color currentColor = originalColor;
@@ -364,27 +577,168 @@ void showGame(sf::RenderWindow& window, Country& PlayerCountry, Country& EnemyCo
                             selected_city = i + 5;
                             refresh_variable = 1;
                         }
+                        if (globalSettings.getChosenCountry() == "Finland") {
+                            if (selected_city >= 0 && selected_city < 5) {
+                                if (grainMenuIconSprite.getGlobalBounds().contains(mousePos)) {
+                                    if (PlayerCountry.getMetalStockpile() > 50) {
+                                        PlayerCountry.cities[selected_city].setFarms(PlayerCountry.cities[selected_city].getFarms() + 1);
+                                        PlayerCountry.setMetalStockpile(PlayerCountry.getMetalStockpile() - 50);
+                                        cityUpgradedTimer[selected_city] = 5;
+                                        PlayerCountry.cities[selected_city].setIsUpgraded(true);
+                                    }
+                                    else {
+
+                                    }
+                                }
+                                if (metalMenuIconSprite.getGlobalBounds().contains(mousePos)) {
+                                    if (PlayerCountry.getMetalStockpile() > 50) {
+                                        PlayerCountry.cities[selected_city].setMines(PlayerCountry.cities[selected_city].getMines() + 1);
+                                        PlayerCountry.setMetalStockpile(PlayerCountry.getMetalStockpile() - 50);
+                                        cityUpgradedTimer[selected_city] = 5;
+                                        PlayerCountry.cities[selected_city].setIsUpgraded(true);
+                                    }
+                                    else {
+
+                                    }
+                                }
+                                if (uraniumMenuIconSprite.getGlobalBounds().contains(mousePos)) {
+                                    if (PlayerCountry.getMetalStockpile() > 50) {
+                                        PlayerCountry.cities[selected_city].setReactors(PlayerCountry.cities[selected_city].getReactors() + 1);
+                                        PlayerCountry.setMetalStockpile(PlayerCountry.getMetalStockpile() - 50);
+                                        cityUpgradedTimer[selected_city] = 5;
+                                        PlayerCountry.cities[selected_city].setIsUpgraded(true);
+                                    }
+                                    else {
+
+                                    }
+                                }
+
+                            }
+
+                            if (selected_city >= 5 && selected_city < 10) {
+                                if (grainMenuIconSprite.getGlobalBounds().contains(mousePos)) {
+                                    if (PlayerCountry.getUraniumStockpile() >= 100) {
+                                        PlayerCountry.setNukes(PlayerCountry.getNukes() + 1);
+                                        PlayerCountry.setUraniumStockpile(PlayerCountry.getUraniumStockpile() - 100);
+                                    }
+                                    else {
+
+                                    }
+                                }
+                                if (metalMenuIconSprite.getGlobalBounds().contains(mousePos)) {
+                                    if (PlayerCountry.getNukes() > 0) {
+                                        PlayerCountry.setNukes(PlayerCountry.getNukes() - 1);
+                                        EnemyCountry.cities[selected_city - 5].setIsDestroyed(1);
+                                        cityBombedTimer[selected_city] = 5;
+                                    }
+                                    else {
+
+                                    }
+                                }
+                                if (uraniumMenuIconSprite.getGlobalBounds().contains(mousePos)) {
+                                    if (PlayerCountry.getUraniumStockpile() >= 50) {
+                                        EnemyCountry.cities[selected_city - 5].setFarms(EnemyCountry.cities[selected_city - 5].getFarms() - 1);
+                                        EnemyCountry.cities[selected_city - 5].setMines(EnemyCountry.cities[selected_city - 5].getMines() - 1);
+                                        EnemyCountry.cities[selected_city - 5].setReactors(EnemyCountry.cities[selected_city - 5].getReactors() - 1);
+                                        PlayerCountry.setUraniumStockpile(PlayerCountry.getUraniumStockpile() - 50);
+                                    }
+                                    else {
+
+                                    }
+                                }
+                            }
+                        }
+                        else {
+                            if (selected_city >= 0 && selected_city < 5) {
+                                if (grainMenuIconSprite.getGlobalBounds().contains(mousePos)) {
+                                    if (PlayerCountry.getUraniumStockpile() >= 100) {
+                                        PlayerCountry.setNukes(PlayerCountry.getNukes() + 1);
+                                        PlayerCountry.setUraniumStockpile(PlayerCountry.getUraniumStockpile() - 100);
+                                    }
+                                    else {
+
+                                    }
+                                }
+                                if (metalMenuIconSprite.getGlobalBounds().contains(mousePos)) {
+                                    if (PlayerCountry.getNukes() > 0) {
+                                        PlayerCountry.setNukes(PlayerCountry.getNukes() - 1);
+                                        EnemyCountry.cities[selected_city - 5].setIsDestroyed(1);
+                                        cityBombedTimer[selected_city] = 5;
+                                    }
+                                    else {
+
+                                    }
+                                }
+                                if (uraniumMenuIconSprite.getGlobalBounds().contains(mousePos)) {
+                                    if (PlayerCountry.getUraniumStockpile() >= 50) {
+                                        EnemyCountry.cities[selected_city - 5].setFarms(EnemyCountry.cities[selected_city - 5].getFarms() - 1);
+                                        EnemyCountry.cities[selected_city - 5].setMines(EnemyCountry.cities[selected_city - 5].getMines() - 1);
+                                        EnemyCountry.cities[selected_city - 5].setReactors(EnemyCountry.cities[selected_city - 5].getReactors() - 1);
+                                        PlayerCountry.setUraniumStockpile(PlayerCountry.getUraniumStockpile() - 50);
+                                    }
+                                    else {
+
+                                    }
+                                }
+                            }
+                            if (selected_city >= 5 && selected_city < 10) {
+                                if (grainMenuIconSprite.getGlobalBounds().contains(mousePos)) {
+                                    if (PlayerCountry.getMetalStockpile() > 50) {
+                                        PlayerCountry.cities[selected_city].setFarms(PlayerCountry.cities[selected_city].getFarms() + 1);
+                                        PlayerCountry.setMetalStockpile(PlayerCountry.getMetalStockpile() - 50);
+                                        cityUpgradedTimer[selected_city] = 5;
+                                        PlayerCountry.cities[selected_city].setIsUpgraded(true);
+                                    }
+                                    else {
+
+                                    }
+                                }
+                                if (metalMenuIconSprite.getGlobalBounds().contains(mousePos)) {
+                                    if (PlayerCountry.getMetalStockpile() > 50) {
+                                        PlayerCountry.cities[selected_city].setMines(PlayerCountry.cities[selected_city].getMines() + 1);
+                                        PlayerCountry.setMetalStockpile(PlayerCountry.getMetalStockpile() - 50);
+                                        cityUpgradedTimer[selected_city] = 5;
+                                        PlayerCountry.cities[selected_city].setIsUpgraded(true);
+                                    }
+                                    else {
+
+                                    }
+                                }
+                                if (uraniumMenuIconSprite.getGlobalBounds().contains(mousePos)) {
+                                    if (PlayerCountry.getMetalStockpile() > 50) {
+                                        PlayerCountry.cities[selected_city].setReactors(PlayerCountry.cities[selected_city].getReactors() + 1);
+                                        PlayerCountry.setMetalStockpile(PlayerCountry.getMetalStockpile() - 50);
+                                        cityUpgradedTimer[selected_city] = 5;
+                                        PlayerCountry.cities[selected_city].setIsUpgraded(true);
+                                    }
+                                    else {
+
+                                    }
+                                }
+
+                            }
+                        }
                     }
                 }
             }
 
             if (event.type == sf::Event::KeyPressed) {
-                if (event.key.code == sf::Keyboard::Escape) {
+                if (event.key.code == globalSettings.getKeyEscape()) {
                     if (showGameMenu(window)) {
                         return;
                     }
                 }
-                else if (event.key.code == sf::Keyboard::Up) {
+                else if (event.key.code == globalSettings.getKeyUp()) {
                     selected_tab = 0;
                 }
-                else if (event.key.code == sf::Keyboard::Down) {
+                else if (event.key.code == globalSettings.getKeyDown()) {
                     selected_tab = 1;
                 }
-                else if (event.key.code == sf::Keyboard::Right) {
+                else if (event.key.code == globalSettings.getKeyRight()) {
                     selected_city = (selected_city + 1) % 10;
                     refresh_variable = 1;
                 }
-                else if (event.key.code == sf::Keyboard::Left) {
+                else if (event.key.code == globalSettings.getKeyLeft()) {
                     selected_city = (selected_city - 1 + 10) % 10;
                     refresh_variable = 1;
                 }
@@ -414,15 +768,17 @@ void showGame(sf::RenderWindow& window, Country& PlayerCountry, Country& EnemyCo
         }
 
         if (refresh_variable) {
+
             for (int i = 0; i < 5; ++i) {
                 cityFinlandIconSprites[i].setColor(originalColor);
                 cityKoreaIconSprites[i].setColor(originalColor);
             }
+
             topBarText0.setString(std::to_string(PlayerCountry.getFoodStockpile()) + "/100+(" + std::to_string(PlayerCountry.getFoodIncome()) + ")");
             topBarText1.setString(std::to_string(PlayerCountry.getMetalStockpile()) + "/100+(" + std::to_string(PlayerCountry.getMetalIncome()) + ")");
             topBarText2.setString(std::to_string(PlayerCountry.getUraniumStockpile()) + "/100+(" + std::to_string(PlayerCountry.getUraniumIncome()) + ")");
-            topBarText3.setString("" + std::to_string(PlayerCountry.getFoodIncome()));
-            topBarText4.setString("" + std::to_string(PlayerCountry.getFoodIncome()));
+            topBarText3.setString("" + std::to_string(PlayerCountry.getNukes()));
+            topBarText4.setString("" + std::to_string(PlayerCountry.getNumberOfCities()));
             logBarText0.setString("City: " + std::to_string(selected_city));
             logBarText1.setString("Icon: " + std::to_string(selected_icon));
             logBarText2.setString("Menu: " + std::to_string(selected_menu));
@@ -445,25 +801,149 @@ void showGame(sf::RenderWindow& window, Country& PlayerCountry, Country& EnemyCo
             window.draw(topBarText1);
             window.draw(uraniumIconSprite);
             window.draw(topBarText2);
-
+            window.draw(nukeMenuIconSprite);
             window.draw(topBarText3);
+            window.draw(citiesSprite);
             window.draw(topBarText4);
 
             window.draw(logBarText0);
             window.draw(logBarText1);
             window.draw(logBarText2);
 
+            window.draw(logInfoText0);
+            window.draw(logCostText0);
+            window.draw(logCostText1);
+            window.draw(logCostText2);
+
+            if (cityAnimationClock.getElapsedTime().asSeconds() >= frameDuration) {
+                currentFrameDestroyedCity = (currentFrameDestroyedCity + 1) % 3;
+                for (int i = 0; i < 5; i++) {
+                    cityFinlandDestroyedIconSprites[i].setTextureRect(destroyedFrames[currentFrameDestroyedCity]);
+                    cityKoreaDestroyedIconSprites[i].setTextureRect(destroyedFrames[currentFrameDestroyedCity]);
+                }
+                currentFrameUpgradedCity = (currentFrameUpgradedCity + 1) % 4;
+                for (int i = 0; i < 5; i++) {
+                    cityFinlandUpgradedIconSprites[i].setTextureRect(upgradingFrames[currentFrameUpgradedCity]);
+                    cityKoreaUpgradedIconSprites[i].setTextureRect(upgradingFrames[currentFrameUpgradedCity]);
+                }
+                currentFrameBombedCity = (currentFrameDestroyedCity + 1) % 5;
+                for (int i = 0; i < 5; i++) {
+                    cityFinlandBombedIconSprites[i].setTextureRect(explosionFrames[currentFrameBombedCity]);
+                    cityKoreaBombedIconSprites[i].setTextureRect(explosionFrames[currentFrameBombedCity]);
+                }
+                currentSoldierFrame = (currentSoldierFrame + 1) % 6;
+                for (int i = 0; i < 3; i++) {
+                    soldierFSprites[i].setTextureRect(soldierFFrames[currentSoldierFrame]);
+                    soldierKSprites[i].setTextureRect(soldierKFrames[currentSoldierFrame]);
+                }
+                cityAnimationClock.restart();
+            }
+
+            for (int i = 0; i < 3; i++) {
+                window.draw(soldierFSprites[i]);
+                window.draw(soldierKSprites[i]);
+            }
+
             if (selected_city >= 0 && selected_city < 5) {
                 outlineShape.setPosition(cityFinlandIconSprites[selected_city].getPosition());
                 outlineShape.setOutlineColor(outlineColor);
                 outlineShape.setOutlineThickness(outlineThickness);
                 window.draw(outlineShape);
+                logInfoText0.setString("Player City");
+                logCostText0.setString("");
+                logCostText1.setString("");
+                logCostText2.setString("");
+                if (globalSettings.getChosenCountry() == "Finland") {
+                    if (selected_icon == 10) {
+                        logInfoText0.setString("Build Farm");
+                        logCostText0.setString("0");
+                        logCostText1.setString("50");
+                        logCostText2.setString("0");
+                    }
+                    if (selected_icon == 11) {
+                        logInfoText0.setString("Build Mine");
+                        logCostText0.setString("0");
+                        logCostText1.setString("50");
+                        logCostText2.setString("0");
+                    }
+                    if (selected_icon == 12) {
+                        logInfoText0.setString("Build Reactor");
+                        logCostText0.setString("0");
+                        logCostText1.setString("0");
+                        logCostText2.setString("50");
+                    }
+                }
+                else {
+                    if (selected_icon == 10) {
+                        logInfoText0.setString("Build Nuke");
+                        logCostText0.setString("0");
+                        logCostText1.setString("0");
+                        logCostText2.setString("100");
+                    }
+                    if (selected_icon == 11) {
+                        logInfoText0.setString("Nuke City");
+                        logCostText0.setString("0");
+                        logCostText1.setString("0");
+                        logCostText2.setString("0");
+                    }
+                    if (selected_icon == 12) {
+                        logInfoText0.setString("Bomb City(-1 Buildings)");
+                        logCostText0.setString("0");
+                        logCostText1.setString("0");
+                        logCostText2.setString("50");
+                    }
+                }
             }
+
             else if (selected_city >= 5 && selected_city < 10) {
                 outlineShape.setPosition(cityKoreaIconSprites[selected_city - 5].getPosition());
                 outlineShape.setOutlineColor(outlineColor);
                 outlineShape.setOutlineThickness(outlineThickness);
                 window.draw(outlineShape);
+                logInfoText0.setString("Enemy City");
+                logCostText0.setString("");
+                logCostText1.setString("");
+                logCostText2.setString("");
+                if (globalSettings.getChosenCountry() == "Finland") {
+                    if (selected_icon == 10) {
+                        logInfoText0.setString("Build Nuke");
+                        logCostText0.setString("0");
+                        logCostText1.setString("0");
+                        logCostText2.setString("100");
+                    }
+                    if (selected_icon == 11) {
+                        logInfoText0.setString("Nuke City");
+                        logCostText0.setString("0");
+                        logCostText1.setString("0");
+                        logCostText2.setString("0");
+                    }
+                    if (selected_icon == 12) {
+                        logInfoText0.setString("Bomb City(-1 Buildings)");
+                        logCostText0.setString("0");
+                        logCostText1.setString("0");
+                        logCostText2.setString("50");
+                    }
+                }
+                else {
+                    if (selected_icon == 10) {
+                        logInfoText0.setString("Build Farm");
+                        logCostText0.setString("0");
+                        logCostText1.setString("50");
+                        logCostText2.setString("0");
+                    }
+                    if (selected_icon == 11) {
+                        logInfoText0.setString("Build Mine");
+                        logCostText0.setString("0");
+                        logCostText1.setString("50");
+                        logCostText2.setString("0");
+                    }
+                    if (selected_icon == 12) {
+                        logInfoText0.setString("Build Reactor");
+                        logCostText0.setString("0");
+                        logCostText1.setString("50");
+                        logCostText2.setString("0");
+                    }
+                }
             }
 
             if (selected_icon >= 0 && selected_icon < 5) {
@@ -471,6 +951,7 @@ void showGame(sf::RenderWindow& window, Country& PlayerCountry, Country& EnemyCo
                 outlineCityShape.setOutlineColor(outlineIconColor);
                 outlineCityShape.setOutlineThickness(outlineThickness);
                 window.draw(outlineCityShape);
+
             }
             else if (selected_icon >= 5 && selected_icon < 10) {
                 outlineCityShape.setPosition(cityKoreaIconSprites[selected_icon - 5].getPosition());
@@ -484,20 +965,34 @@ void showGame(sf::RenderWindow& window, Country& PlayerCountry, Country& EnemyCo
                 switch (selected_icon) {
                 case 10:
                     outlineIconShape.setPosition(grainMenuIconSprite.getPosition());
+                    window.draw(grainLogIconSprite);
+                    window.draw(metalLogIconSprite);
+                    window.draw(uraniumLogIconSprite);
                     break;
                 case 11:
                     outlineIconShape.setPosition(metalMenuIconSprite.getPosition());
+
+                    window.draw(grainLogIconSprite);
+                    window.draw(metalLogIconSprite);
+                    window.draw(uraniumLogIconSprite);
                     break;
                 case 12:
                     outlineIconShape.setPosition(uraniumMenuIconSprite.getPosition());
+
+                    window.draw(grainLogIconSprite);
+                    window.draw(metalLogIconSprite);
+                    window.draw(uraniumLogIconSprite);
+                    window.draw(logInfoText0);
+                    window.draw(logCostText0);
+                    window.draw(logCostText1);
+                    window.draw(logCostText2);
                     break;
                 default:
                     break;
                 }
+
                 window.draw(outlineIconShape);
             }
-
-
 
 
             if (globalSettings.getChosenCountry() == "Finland") {
@@ -507,14 +1002,16 @@ void showGame(sf::RenderWindow& window, Country& PlayerCountry, Country& EnemyCo
                     window.draw(uraniumMenuIconSprite);
                 }
                 if (selected_city >= 5 && selected_city < 10) {
-                    //
-                    //
+                    window.draw(nukeBuildIconflagSprite);
+                    window.draw(nukeIconSprite);
+                    window.draw(cityBombedIconSprite);
                 }
             }
             else {
                 if (selected_city >= 0 && selected_city < 5) {
-                    //
-                    //
+                    window.draw(nukeBuildIconflagSprite);
+                    window.draw(nukeIconSprite);
+                    window.draw(cityBombedIconSprite);
                 }
                 if (selected_city >= 5 && selected_city < 10) {
                     window.draw(grainMenuIconSprite);
@@ -523,12 +1020,63 @@ void showGame(sf::RenderWindow& window, Country& PlayerCountry, Country& EnemyCo
                 }
             }
 
+            for (int u = 0; u < 5; u++) {
+                if (PlayerCountry.cities[u].getIsDestroyed()) {
+                    window.draw(cityFinlandDestroyedIconSprites[u]);
+                }
+                else if (PlayerCountry.cities[u].getIsUpgraded()) {
+                    window.draw(cityKoreaUpgradedIconSprites[u]);
+                }
+                else {
+                    window.draw(cityFinlandIconSprites[u]);
+                }
+                if (cityBombedTimer[u] > 0) {
+                    window.draw(cityFinlandBombedIconSprites[u]);
+                    if (cityAnimationClock.getElapsedTime().asSeconds() >= frameDuration) {
+                        cityBombedTimer[u]--;
+                    }
+                }
 
-            for (int u = 0; u < PlayerCountry.getNumberOfCities(); u++) {
-                window.draw(cityFinlandIconSprites[u]);
+                if (EnemyCountry.cities[u].getIsDestroyed()) {
+                    window.draw(cityKoreaDestroyedIconSprites[u]);
+                }
+                else if (EnemyCountry.cities[u].getIsUpgraded()) {
+                    window.draw(cityKoreaUpgradedIconSprites[u]);
+                }
+                else {
+                    window.draw(cityKoreaIconSprites[u]);
+                }
+                if (cityBombedTimer[u + 5] > 0) {
+                    window.draw(cityKoreaBombedIconSprites[u]);
+                    if (cityAnimationClock.getElapsedTime().asSeconds() >= frameDuration) {
+                        cityBombedTimer[u + 5]--;
+                    }
+                }
+
                 window.draw(cityFinlandNames[u]);
-                window.draw(cityKoreaIconSprites[u]);
                 window.draw(cityKoreaNames[u]);
+            }
+            for (int u = 0; u < 5; u++) {
+                if (PlayerCountry.cities[u].getIsUpgraded()) {
+                    if (cityUpgradedTimer[u] > 0) {
+                        if (cityAnimationClock.getElapsedTime().asSeconds() >= frameDuration) {
+                            cityUpgradedTimer[u] = cityUpgradedTimer[u] - 1;
+                        }
+                    }
+                    else {
+                        PlayerCountry.cities[u].setIsUpgraded(false);
+                    }
+                }
+                if (EnemyCountry.cities[u].getIsUpgraded()) {
+                    if (cityUpgradedTimer[u + 5] > 0) {
+                        if (cityAnimationClock.getElapsedTime().asSeconds() >= frameDuration) {
+                            cityUpgradedTimer[u + 5] = cityUpgradedTimer[u + 5] - 1;
+                        }
+                    }
+                    else {
+                        PlayerCountry.cities[u].setIsUpgraded(false);
+                    }
+                }
             }
 
             window.display();

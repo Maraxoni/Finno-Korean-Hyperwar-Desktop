@@ -6,7 +6,7 @@
 #include "../Classes/Country.h"
 #include "../Classes/Settings.h"
 
-void game(Country& PlayerCountry, Country& EnemyCountry) {
+void game(sf::RenderWindow& window, Country& PlayerCountry, Country& EnemyCountry) {
 	extern Settings globalSettings;
 
 	std::mutex mtx;
@@ -17,7 +17,7 @@ void game(Country& PlayerCountry, Country& EnemyCountry) {
 
 	std::cout << "GameLogicFunction\n";
 
-	while (1) {
+	while (window.isOpen()) {
 		if (game_month > 12) {
 			game_month = 1;
 			game_year++;
@@ -39,16 +39,15 @@ void game(Country& PlayerCountry, Country& EnemyCountry) {
 		}
 		if (EnemyCountry.getNukes() > 0) {
 			EnemyCountry.setNukes(EnemyCountry.getNukes() - 1);
-			//PlayerCountry.cities[id].setIsDestroyed(true);
+			PlayerCountry.cities[id].setIsDestroyed(true);
 			id = id - 1;
 		}
-		if(game_year == 2145){
+		if(PlayerCountry.getNumberOfCities() <= 0 || EnemyCountry.getNumberOfCities() <= 0 || PlayerCountry.getFoodStockpile() <= 0 || EnemyCountry.getFoodStockpile() <= 0) {
 			break;
 		}
 
-		mtx.lock();
-
-		mtx.unlock();
+		//mtx.lock();
+		//mtx.unlock();
 
 		game_month++;
 		std::this_thread::sleep_for(std::chrono::seconds(globalSettings.getSpeed()));
