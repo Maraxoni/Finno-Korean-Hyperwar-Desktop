@@ -1332,6 +1332,17 @@ void showGame(sf::RenderWindow& window, Country& PlayerCountry, Country& EnemyCo
             }
 
             window.display();
+
+            if (PlayerCountry.getNumberOfCities() <= 0 || PlayerCountry.getFoodStockpile() <= 0) {
+                if (showEndCredits(window, 1)) {
+                    return;
+                }
+            }
+            if (EnemyCountry.getNumberOfCities() <= 0 || EnemyCountry.getFoodStockpile() <= 0) {
+                if (showEndCredits(window, 2)) {
+                    return;
+                }
+            }
         }
         refresh_variable = 0;
     }

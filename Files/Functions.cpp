@@ -828,7 +828,7 @@ void showCredits(sf::RenderWindow& window) {
         }
         window.clear();
         window.draw(creditsBackgroundSprite);
-        
+
         window.draw(bottomTooltipRectangle);
 
         window.draw(creditsText0);
@@ -851,4 +851,99 @@ void showSave(sf::RenderWindow& window) {
 
 void showLoad(sf::RenderWindow& window) {
     std::cout << "LoadFunction";
+}
+
+int showEndCredits(sf::RenderWindow& window, int wl) {
+    extern Settings globalSettings;
+
+    sf::Color colorGray(128, 128, 128);
+
+    std::filesystem::path currentPath = std::filesystem::path(__FILE__).parent_path().parent_path();
+    std::cout << currentPath << "\n";
+
+    // Define font and text for menu options
+    sf::Font font_arial;
+    if (!font_arial.loadFromFile((currentPath / "Resources" / "arial.ttf").string())) {
+        std::cerr << "Error loading font." << std::endl;
+    }
+
+    sf::Text endCreditsTextW("You Won!", font_arial, 30);
+    sf::Text endCreditsTextL("You Lost!", font_arial, 30);
+    sf::Text endCreditsReturnText("Return", font_arial, 30);
+    sf::Text endCreditsHighlightedText("Return", font_arial, 30);
+    endCreditsTextW.setPosition(((800 - endCreditsTextW.getGlobalBounds().width) / 2), 220);
+    endCreditsTextL.setPosition(((800 - endCreditsTextL.getGlobalBounds().width) / 2), 220);
+    endCreditsReturnText.setPosition(((800 - endCreditsReturnText.getGlobalBounds().width) / 2), 300);
+    endCreditsHighlightedText.setPosition(((800 - endCreditsHighlightedText.getGlobalBounds().width) / 2), 300);
+    endCreditsTextW.setOutlineThickness(2);
+    endCreditsTextL.setOutlineThickness(2);
+    endCreditsReturnText.setOutlineThickness(2);
+    endCreditsHighlightedText.setFillColor(sf::Color::Red);
+
+    float rectangleX = (endCreditsTextL.getGlobalBounds().width) + 5;
+    float rectangleY = (200);
+    sf::RectangleShape endCreditsRectangle(sf::Vector2f(rectangleX, rectangleY)); // Set the size of the rectangle
+
+    endCreditsRectangle.setPosition(((800 - endCreditsTextL.getGlobalBounds().width) / 2) - 2, 180);
+
+    // Set the color of the rectangle
+    endCreditsRectangle.setFillColor(colorGray);
+    endCreditsRectangle.setOutlineThickness(2);
+
+    //1 - lose 2 - win
+
+    int selected_option = -1;
+    std::cout << "EndCreditsFunction";
+    while (window.isOpen()) {
+        sf::Event event;
+        while (window.pollEvent(event)) {
+            if (event.type == sf::Event::Closed)
+                window.close();
+
+            if (event.type == sf::Event::KeyPressed) {
+                if (event.key.code == globalSettings.getKeyEscape()) {
+                    return 1;
+                }
+                else if (event.key.code == globalSettings.getKeyConfirm()) {
+                    return 1;
+                }
+
+            }
+
+            if (event.type == sf::Event::MouseMoved) {
+                sf::Vector2f mousePos = window.mapPixelToCoords(sf::Mouse::getPosition(window));
+                if (endCreditsReturnText.getGlobalBounds().contains(mousePos)) {
+                    selected_option = 0;
+                }
+            }
+
+            if (event.type == sf::Event::MouseButtonPressed) {
+                if (event.mouseButton.button == sf::Mouse::Left) {
+                    sf::Vector2f mousePos = window.mapPixelToCoords(sf::Mouse::getPosition(window));
+                    if (endCreditsReturnText.getGlobalBounds().contains(mousePos)) {
+                        std::cout << "Mouse Return\n";
+                        return 1;
+                    }
+                }
+            }
+
+        }
+
+        window.draw(endCreditsRectangle);
+        window.draw(endCreditsReturnText);
+
+        if (selected_option == 0) {
+            window.draw(endCreditsHighlightedText);
+        }
+        if (wl == 1) {
+            window.draw(endCreditsTextL);
+        }
+        else if (wl == 2) {
+            window.draw(endCreditsTextW);
+        }
+
+        window.display();
+        
+    }
+    return 0;
 }
