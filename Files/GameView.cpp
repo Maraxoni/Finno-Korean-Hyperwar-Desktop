@@ -1058,8 +1058,8 @@ void showGame(sf::RenderWindow& window, Country& PlayerCountry, Country& EnemyCo
                     if (selected_icon == 12) {
                         logInfoText0.setString("Build Reactor");
                         logCostText0.setString("0");
-                        logCostText1.setString("0");
-                        logCostText2.setString("50");
+                        logCostText1.setString("50");
+                        logCostText2.setString("0");
                     }
                 }
                 else {
@@ -1351,6 +1351,7 @@ void showGame(sf::RenderWindow& window, Country& PlayerCountry, Country& EnemyCo
 //Function
 
 bool showGameMenu(sf::RenderWindow& window) {
+    extern Settings globalSettings;
     std::filesystem::path currentPath = std::filesystem::path(__FILE__).parent_path().parent_path();
 
     // Define font and text for menu options
@@ -1398,7 +1399,7 @@ bool showGameMenu(sf::RenderWindow& window) {
 
     std::cout << "GameMenuFunction\n";
 
-    int selectedOption = 0;
+    int selected_option = 0;
 
     while (window.isOpen()) {
         sf::Event event;
@@ -1409,19 +1410,19 @@ bool showGameMenu(sf::RenderWindow& window) {
             if (event.type == sf::Event::MouseMoved) {
                 sf::Vector2f mousePos = window.mapPixelToCoords(sf::Mouse::getPosition(window));
                 if (gameMenuText0.getGlobalBounds().contains(mousePos)) {
-                    selectedOption = 0;
+                    selected_option = 0;
                 }
                 else if (gameMenuText1.getGlobalBounds().contains(mousePos)) {
-                    selectedOption = 1;
+                    selected_option = 1;
                 }
                 else if (gameMenuText2.getGlobalBounds().contains(mousePos)) {
-                    selectedOption = 2;
+                    selected_option = 2;
                 }
                 else if (gameMenuText3.getGlobalBounds().contains(mousePos)) {
-                    selectedOption = 3;
+                    selected_option = 3;
                 }
                 else if (gameMenuText4.getGlobalBounds().contains(mousePos)) {
-                    selectedOption = 4;
+                    selected_option = 4;
                 }
             }
             // Handle mouse click
@@ -1463,19 +1464,38 @@ bool showGameMenu(sf::RenderWindow& window) {
                     }
                 }
             }
+            if (event.type == sf::Event::KeyPressed) {
+                if (event.key.code == globalSettings.getKeyDown()) {
+                    selected_option = (selected_option - 1 + 5) % 5;
+                }
+                else if (event.key.code == globalSettings.getKeyDown()) {
+                    selected_option = (selected_option + 1) % 5;
+                }
+                else if (event.key.code == globalSettings.getKeyConfirm()) {
+                    std::cout << "Mouse Resume\n";
+                    window.clear();
+                    return 0;
+                }
+                else if (event.key.code == globalSettings.getKeyEscape()) {
+                    std::cout << "Key Main Menu\n";
+                    return 1;
+                    break;
+                }
+            }
+
+            //window.clear();
+            window.draw(gameMenuRectangle);
+            window.draw(gameMenuText0);
+            window.draw(gameMenuText1);
+            window.draw(gameMenuText2);
+            window.draw(gameMenuText3);
+            window.draw(gameMenuText4);
+            window.draw(gameMenuText5);
+
+            //window.draw(gameMenuText0);
+            window.display();
         }
-
-        //window.clear();
-        window.draw(gameMenuRectangle);
-        window.draw(gameMenuText0);
-        window.draw(gameMenuText1);
-        window.draw(gameMenuText2);
-        window.draw(gameMenuText3);
-        window.draw(gameMenuText4);
-        window.draw(gameMenuText5);
-
-        //window.draw(gameMenuText0);
-        window.display();
     }
     return 0;
 }
+

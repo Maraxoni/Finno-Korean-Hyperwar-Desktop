@@ -103,10 +103,10 @@ void showMenu(sf::RenderWindow& window) {
 
             // Handle key presses for menu navigation
             if (event.type == sf::Event::KeyPressed) {
-                if (event.key.code == sf::Keyboard::Up) {
+                if (event.key.code == globalSettings.getKeyUp()) {
                     selected_option = (selected_option - 1 + 5) % 5;
                 }
-                else if (event.key.code == sf::Keyboard::Down) {
+                else if (event.key.code == globalSettings.getKeyDown()) {
                     selected_option = (selected_option + 1) % 5;
                 }
                 else if (event.key.code == globalSettings.getKeyConfirm()) {
