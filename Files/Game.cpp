@@ -18,12 +18,7 @@ void game(sf::RenderWindow& window, Country& PlayerCountry, Country& EnemyCountr
 	std::cout << "GameLogicFunction\n";
 
 	while (window.isOpen()) {
-		if (game_month > 12) {
-			game_month = 1;
-			game_year++;
-		}
-
-
+		
 		PlayerCountry.setFoodStockpile(PlayerCountry.getFoodStockpile() + PlayerCountry.getFoodIncome());
 		PlayerCountry.setMetalStockpile(PlayerCountry.getMetalStockpile() + PlayerCountry.getMetalIncome());
 		PlayerCountry.setUraniumStockpile(PlayerCountry.getUraniumStockpile() + PlayerCountry.getUraniumIncome());
@@ -46,10 +41,6 @@ void game(sf::RenderWindow& window, Country& PlayerCountry, Country& EnemyCountr
 			break;
 		}
 
-		//mtx.lock();
-		//mtx.unlock();
-
-		game_month++;
 		std::this_thread::sleep_for(std::chrono::seconds(globalSettings.getSpeed()));
 	}
 }

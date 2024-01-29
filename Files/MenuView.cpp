@@ -9,6 +9,7 @@
 
 void showMenu(sf::RenderWindow& window) {
     extern Settings globalSettings;
+
     // Path
     std::filesystem::path currentPath = std::filesystem::path(__FILE__).parent_path().parent_path();
     std::cout << currentPath << "\n";
@@ -39,11 +40,19 @@ void showMenu(sf::RenderWindow& window) {
     sf::Text titleText("Finno-Korean Hyperwar", font_arial, 50);
     titleText.setOutlineThickness(2);
 
+    sf::Color colorGray(128, 128, 128);
+
     sf::Text menuText0("New Game", font_arial, 30);
     sf::Text menuText1("Load Game", font_arial, 30);
     sf::Text menuText2("Settings", font_arial, 30);
     sf::Text menuText3("Credits", font_arial, 30);
     sf::Text menuText4("Exit", font_arial, 30);
+
+    sf::Text bottomText("", font_arial, 15);
+    bottomText.setPosition((800 - bottomText.getGlobalBounds().width) / 2, 575);
+    bottomText.setOutlineThickness(1);
+
+    menuText1.setFillColor(colorGray);
 
     menuText0.setOutlineThickness(2);
     menuText1.setOutlineThickness(2);
@@ -65,11 +74,28 @@ void showMenu(sf::RenderWindow& window) {
     highlightedOption.setFillColor(sf::Color::Red);
     // highlightedOption.setOutlineThickness(2);
 
+    sf::RectangleShape bottomTooltipRectangle(sf::Vector2f(798, 25)); // Set the size of the rectangle
+    bottomTooltipRectangle.setPosition(2, 575);
+    bottomTooltipRectangle.setFillColor(colorGray);
+    bottomTooltipRectangle.setOutlineThickness(2);
+    bottomTooltipRectangle.setOutlineColor(sf::Color::Black);
+
     std::cout << "MenuFunction\n";
 
     int selected_option = -1;
 
     while (window.isOpen()) {
+        bottomText.setString("Key Up: " + std::to_string(globalSettings.getKeyUp()) +
+            " Key Down: " + std::to_string(globalSettings.getKeyDown()) +
+            " Key Right: " + std::to_string(globalSettings.getKeyRight()) +
+            " Key Left: " + std::to_string(globalSettings.getKeyLeft()));
+
+        bottomText.setString(bottomText.getString() +
+            " Key Confirm: " + std::to_string(globalSettings.getKeyConfirm()) +
+            " Key Tab: " + std::to_string(globalSettings.getKeyTab()) +
+            " Key Escape: " + std::to_string(globalSettings.getKeyEscape()));
+        bottomText.setPosition((800 - bottomText.getGlobalBounds().width) / 2, 575);
+        
         sf::Event event;
         while (window.pollEvent(event)) {
             if (event.type == sf::Event::Closed)
@@ -180,10 +206,13 @@ void showMenu(sf::RenderWindow& window) {
             highlightedOption.setString(menuText4.getString());
             highlightedOption.setPosition(menuText4.getPosition());
             break;
+        default:
+            break;
         }
 
         window.clear();
         window.draw(menuBackgroundSprite);
+        window.draw(bottomTooltipRectangle);
         window.draw(titleText);
         // Draw menu options
         window.draw(menuText0);
@@ -191,6 +220,8 @@ void showMenu(sf::RenderWindow& window) {
         window.draw(menuText2);
         window.draw(menuText3);
         window.draw(menuText4);
+
+        window.draw(bottomText);
         // Draw highlighted option
         window.draw(highlightedOption);
 

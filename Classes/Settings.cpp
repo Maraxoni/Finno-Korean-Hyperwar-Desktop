@@ -102,19 +102,19 @@ void Settings::setKeyConfirm(sf::Keyboard::Key key) {
 }
 
 sf::Keyboard::Key Settings::getKeyEscape() const {
-    return keyConfirm;
+    return keyEscape;
 }
 
 void Settings::setKeyEscape(sf::Keyboard::Key key) {
-    keyConfirm = key;
+    keyEscape = key;
 }
 
 sf::Keyboard::Key Settings::getKeyTab() const {
-    return keyConfirm;
+    return keyTab;
 }
 
 void Settings::setKeyTab(sf::Keyboard::Key key) {
-    keyConfirm = key;
+    keyTab = key;
 }
 
 std::string Settings::getChosenCountry() const {
